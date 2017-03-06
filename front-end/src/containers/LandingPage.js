@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
+import {
+    Form,
+    FormGroup,
+    ControlLabel,
+    FormControl,
+    Button,
+    Col
+} from 'react-bootstrap';
+
 
 class LandingPage extends Component {
     render() {
@@ -82,4 +90,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default LandingPage

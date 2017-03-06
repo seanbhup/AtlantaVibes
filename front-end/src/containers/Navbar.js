@@ -3,8 +3,19 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 import LoginModal from "./LoginModal.js";
+import loginModalAction from '../actions/LoginModalAction.js'
 
 class Navbar1 extends Component {
+    constructor(props){
+        super(props)
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+    }
+
+    handleLoginClick(){
+        this.props.getModal({
+            showModal: true
+        })
+    }
 
     render() {
         return (
@@ -29,10 +40,12 @@ class Navbar1 extends Component {
                             </NavDropdown>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Login</NavItem>
+                            <NavItem onClick={this.handleLoginClick} href="#">Login</NavItem>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
+
+                <LoginModal />
 
 
             </div>
@@ -41,4 +54,11 @@ class Navbar1 extends Component {
 
 }
 
-export default Navbar1;
+// map get modal to props so that our loginModalAction can listen for a click to the login button
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getModal: loginModalAction
+    }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Navbar1);

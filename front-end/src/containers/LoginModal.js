@@ -1,29 +1,25 @@
 import React, {Component} from "react";
 import {Modal, Button} from "react-bootstrap";
 
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import loginModalAction from '../actions/LoginModalAction.js'
+
 class LoginModal extends Component{
     constructor(props) {
-        super(props)
-        this.state = {
-            showModal: false
-        };
-        this.handleModalOpen = this.handleModalOpen.bind(this);
+        super(props);
         this.handleModalClose = this.handleModalClose.bind(this);
-
     }
 
-    handleModalOpen(event) {
-        this.setState({showModal: true});
-        console.log("looeoe")
-    }
-
-    handleModalClose(event) {
-        this.setState({showModal: false})
+    handleModalClose() {
+        this.props.getModal({
+            showModal: false
+        })
     }
 
     render() {
         return (
-            <Modal show={this.state.showModal} onHide={this.handleModalClose}>
+            <Modal show={this.props.loginModal.showModal} onHide={this.handleModalClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
@@ -38,4 +34,16 @@ class LoginModal extends Component{
     }
 }
 
-export default LoginModal;
+function mapStateToProps(state){
+    return {
+        loginModal: state.loginModal
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getModal: loginModalAction
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);

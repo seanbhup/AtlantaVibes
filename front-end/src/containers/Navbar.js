@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+import LoginModal from "./LoginModal.js";
 
 class Navbar1 extends Component {
 
@@ -32,6 +33,8 @@ class Navbar1 extends Component {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
+
+
             </div>
         );
     }

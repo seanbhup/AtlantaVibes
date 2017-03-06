@@ -1,9 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import App from './components/App.js';
+
+// Css
+import '../public/stylesheets/styles.css';
+
+// Redux, Router imports
+import { Provider } from 'react-redux';
+import reduxPromise from 'redux-promise';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers/index.js';
+
+// Instantiate the store obect with createStore method. The reducers param is
+// required. I also pass the login token retreived from locals storage as
+// persistedState. Finally, reduxPromise middleware is passed to assist in my
+// ajax requests.
+const store = createStore(
+    reducers,
+    // persistedState,
+    applyMiddleware(
+        reduxPromise
+    )
+)
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <Provider store={store} >
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );

@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import reduxPromise from 'redux-promise';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers/index.js';
-
+import { Router, Route, hashHistory } from 'react-router'
 // Instantiate the store obect with createStore method. The reducers param is
 // required. I also pass the login token retreived from locals storage as
 // persistedState. Finally, reduxPromise middleware is passed to assist in my
@@ -25,7 +25,9 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store} >
-        <App />
+        <Router history={hashHistory}>
+            <Route path="/" component={App} />
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

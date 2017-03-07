@@ -43,3 +43,13 @@ body {
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
+/* line 53, ../../compass/sass/styles.scss */
+.login-button {
+  width: 100%;
+}
+
+/* line 60, ../../compass/sass/styles.scss */
+.modal-dialog {
+  margin: 100px auto;
+}

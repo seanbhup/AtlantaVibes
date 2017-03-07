@@ -1,8 +1,12 @@
 import {combineReducers} from "redux";
-import loginModalReducer from './LoginModalReducer.js'
+import LoginModalReducer from './LoginModalReducer.js'
+import LoginReducer from './LoginReducer.js'
+
 
 const masterReducer = combineReducers({
-    loginModal: loginModalReducer
+    loginModal: LoginModalReducer,
+    login: LoginReducer
+
 });
 
 export default masterReducer;

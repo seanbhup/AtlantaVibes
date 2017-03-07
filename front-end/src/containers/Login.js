@@ -28,6 +28,12 @@ class Login extends Component {
         // console.log(username, password)
     }
 
+    componentDidMount(){
+
+      console.log(this.props.login);
+
+    }
+
     render(){
         return(
             <Form horizontal onSubmit={this.handleLoginSubmit}>
@@ -69,4 +75,10 @@ function mapDispatchToProps(dispatch){
     },dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+function mapStateToProps(state){
+  return {
+      login: state.login
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

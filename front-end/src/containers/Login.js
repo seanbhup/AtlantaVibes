@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
     Form,
     FormGroup,
-    ControlLabel,
     FormControl,
     Button,
     Col
@@ -58,11 +57,11 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps(state){
-    return{
-
-    }
-}
+// function mapStateToProps(state){
+//     return{
+//
+//     }
+// }
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({

@@ -9,6 +9,7 @@ import {
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import LoginAction from "../actions/LoginAction.js";
+import loginModalAction from '../actions/LoginModalAction.js';
 
 class Login extends Component {
     constructor(props){
@@ -28,11 +29,19 @@ class Login extends Component {
         // console.log(username, password)
     }
 
-    componentDidMount(){
-
-      console.log(this.props.login);
+    componentDidMount() {
 
     }
+
+    componentDidUpdate() {
+        console.log(this.props.login);
+        var message = this.props.login.msg;
+        if (message === 'loginSuccess') {
+            this.props.getModal(false);
+        }
+    }
+
+
 
     render(){
         return(
@@ -71,7 +80,8 @@ class Login extends Component {
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        loginAction: LoginAction
+        loginAction: LoginAction,
+        getModal: loginModalAction
     },dispatch)
 }
 

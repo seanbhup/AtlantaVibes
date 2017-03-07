@@ -23,6 +23,10 @@ const store = createStore(
     )
 )
 
+store.subscribe(() => {
+    console.log(store.getState().register);
+})
+
 ReactDOM.render(
     <Provider store={store} >
         <Router history={hashHistory}>

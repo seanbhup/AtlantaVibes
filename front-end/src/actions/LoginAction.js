@@ -1,9 +1,9 @@
-// import $ from "jquery";
-import axios from "axios";
+import $ from "jquery";
+// import axios from "axios";
 
 var LoginAction = (loginData)=>{
     var thePromise =
-        axios({
+        $.ajax({
             method: "POST",
             url: "http://localhost:3000/login",
             data: loginData

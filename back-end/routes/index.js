@@ -34,12 +34,14 @@ router.post('/login', (req,res,next)=>{
             res.json({
                 msg: "badUsername"
             });
+            console.log(results);
         }else{
             checkHash = bcrypt.compareSync(password, results[0].password);
             if (checkHash === false){
                 res.json({
                     msg: "loginFailure"
-                })
+                });
+                console.log(results);
             }else{
                 var token = randtoken.uid(40);
                 var insertToken = "update user_info set token=? where username=?";
@@ -50,13 +52,26 @@ router.post('/login', (req,res,next)=>{
                         token: token,
                         name: results[0].username
                     });
+                    console.log(results);
                 });
             };
-            // console.log(":LKSGHWIOERGHWLEKGH");
-            console.log(checkHash);
         }
     });
 })
+
+router.post('/register', (req, res, body) => {
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = bcrypt.hashSync(req.body.password);
+
+    var insertUserQuery = `INSERT INTO user_info (username, password, email_address) VALUES (?, ?, ?)`;
+    connection.query(insertUserQuery, [username, password, email], (error, results, fields) => {
+        if (error) throw error;
+        res.json({
+            msg: 'userInserted'
+        })
+    });
+});
 
 
 module.exports = router;

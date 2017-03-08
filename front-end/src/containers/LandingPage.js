@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
 import Register from './Register.js';
 
+import brace from 'brace';
+import AceEditor from 'react-ace';
+
+import 'brace/mode/javascript';
+import 'brace/theme/monokai';
 
 class LandingPage extends Component {
+
+    handleEditorChange(newValue) {
+        console.log('change',newValue);
+    }
+
     render() {
         return (
             <div>
@@ -15,7 +25,7 @@ class LandingPage extends Component {
                                 <h3 className="text-center">doubleblah</h3>
                             </div>
                             <div className="register-form col-xs-6">
-                                <Register />
+                                <Register/>
                             </div>
                         </div>
 
@@ -34,6 +44,14 @@ class LandingPage extends Component {
                         </div>
                     </div>
                 </div>
+                <AceEditor
+                    mode="javascript"
+                    theme="monokai"
+                    onChange={this.handleEditorChange}
+                    name="UNIQUE_ID_OF_DIV"
+                    editorProps={{
+                        $blockScrolling: true
+                    }}/>
             </div>
         )
     }

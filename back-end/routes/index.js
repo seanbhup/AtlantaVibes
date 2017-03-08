@@ -30,6 +30,7 @@ router.post('/login', (req,res,next)=>{
 
     // Look into database to see if there is a user that matches the username entered
     var findUserQuery = "select * from user_info where username = ?";
+    
     connection.query(findUserQuery, [username], (error,results,fields)=>{
         if (error) throw error;
         if (results.length === 0){

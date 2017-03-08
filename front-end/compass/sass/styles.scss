@@ -9,8 +9,11 @@ body {
     background-color: $color12;
 }
 
+.navbar {
+    border-radius: 0px;
+}
+
 .greeting-register-wrapper{
-    border: 1px solid blue;
     height: 400px;
     // width: 100vw;
     // background: url("../../public/code-killer.jpg");
@@ -19,11 +22,16 @@ body {
 
 }
 
+.container-fluid{
+    background-image: url("../landing-background-smaller.png");
+    background-image: cover;
+}
+
 .greeting{
     color: black;
     border: 1px solid black;
     display: inline-block;
-    height:200px;
+    height:400;
     margin-top: 100px;
 
 }
@@ -50,7 +58,7 @@ body {
 
 }
 
-.login-button{
+.login-button, .register-button{
     width:100%;
 }
 
@@ -59,4 +67,9 @@ body {
 
 .modal-dialog{
     margin:100px auto;
+}
+
+.background-image{
+    width:100%;
+    height:100%;
 }

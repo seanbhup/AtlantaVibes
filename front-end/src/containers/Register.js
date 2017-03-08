@@ -14,19 +14,18 @@ import RegisterAction from '../actions/RegisterAction.js';
 
 // bring in register message from root reducer
 
-
 class Register extends Component {
     constructor(props) {
         super(props);
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         var registerMessage = this.props.register.msg;
         console.log('*************************************')
         console.log(registerMessage)
         console.log('*************************************')
-        if(registerMessage === "userExists"){
+        if (registerMessage === "userExists") {
             alert(registerMessage);
         }
 
@@ -38,62 +37,46 @@ class Register extends Component {
         var password = event.target[2].value;
         var repeatPassword = event.target[3].value;
 
-
         if (password !== repeatPassword) {
             alert('Passwords do not match');
         } else {
-            this.props.registerAction({
-                username: username,
-                email: email,
-                password: password
-            });
+            this.props.registerAction({username: username, email: email, password: password});
         }
 
     }
 
     render() {
-        return(
+        return (
             <Form horizontal onSubmit={this.handleRegistrationSubmit}>
                 <FormGroup controlId="formHorizontalName">
-                    <Col componentClass={ControlLabel} sm={2}>
-                        Username
-                    </Col>
-                    <Col sm={10}>
+                    <Col smOffset={2} sm={8}>
                         <FormControl type="text" placeholder="Full Name"/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                    <Col componentClass={ControlLabel} sm={2}>
-                        Email
-                    </Col>
-                    <Col sm={10}>
+
+                    <Col smOffset={2} sm={8}>
                         <FormControl type="email" placeholder="Email"/>
                     </Col>
                 </FormGroup>
-
                 <FormGroup controlId="formHorizontalPassword">
-                    <Col componentClass={ControlLabel} sm={2}>
-                        Password
-                    </Col>
-                    <Col sm={10}>
+
+                    <Col smOffset={2} sm={8}>
                         <FormControl type="password" placeholder="Password"/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalPassword">
-                    <Col componentClass={ControlLabel} sm={2}>
-                        Repeat Password
-                    </Col>
-                    <Col sm={10}>
+                    <Col smOffset={2} sm={8}>
                         <FormControl type="password" placeholder="Password"/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
-                    <Col smOffset={2} sm={10}>
-                        <Button bsStyle="danger" bsSize="small" type="submit">
-                            Register
+                    <Col smOffset={2} sm={8}>
+                        <Button className="register-button" bsStyle="warning" bsSize="small" type="submit">
+                            Register FOR PHASER
                         </Button>
                     </Col>
                 </FormGroup>
@@ -103,9 +86,7 @@ class Register extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        register: state.register
-    }
+    return {register: state.register}
 }
 
 function mapDispatchToProps(dispatch) {

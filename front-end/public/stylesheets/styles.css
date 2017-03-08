@@ -9,23 +9,33 @@ body {
 }
 
 /* line 12, ../../compass/sass/styles.scss */
+.navbar {
+  border-radius: 0px;
+}
+
+/* line 16, ../../compass/sass/styles.scss */
 .greeting-register-wrapper {
-  border: 1px solid blue;
   height: 400px;
   background-color: lightblue;
   background-size: cover;
 }
 
-/* line 22, ../../compass/sass/styles.scss */
+/* line 25, ../../compass/sass/styles.scss */
+.container-fluid {
+  background-image: url("../landing-background-smaller.png");
+  background-image: cover;
+}
+
+/* line 30, ../../compass/sass/styles.scss */
 .greeting {
   color: black;
   border: 1px solid black;
   display: inline-block;
-  height: 200px;
+  height: 400;
   margin-top: 100px;
 }
 
-/* line 31, ../../compass/sass/styles.scss */
+/* line 39, ../../compass/sass/styles.scss */
 .register-form {
   border: 1px solid black;
   display: inline-block;
@@ -33,23 +43,29 @@ body {
   margin-top: 75px;
 }
 
-/* line 39, ../../compass/sass/styles.scss */
+/* line 47, ../../compass/sass/styles.scss */
 .how-it-works-wrapper {
   border: 1px solid purple;
 }
 
-/* line 43, ../../compass/sass/styles.scss */
+/* line 51, ../../compass/sass/styles.scss */
 .step {
   margin-top: 100px;
   margin-bottom: 100px;
 }
 
-/* line 53, ../../compass/sass/styles.scss */
-.login-button {
+/* line 61, ../../compass/sass/styles.scss */
+.login-button, .register-button {
   width: 100%;
 }
 
-/* line 60, ../../compass/sass/styles.scss */
+/* line 68, ../../compass/sass/styles.scss */
 .modal-dialog {
   margin: 100px auto;
+}
+
+/* line 72, ../../compass/sass/styles.scss */
+.background-image {
+  width: 100%;
+  height: 100%;
 }

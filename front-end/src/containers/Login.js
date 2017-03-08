@@ -35,8 +35,8 @@ class Login extends Component {
 
     componentDidUpdate() {
         console.log(this.props.login);
-        var message = this.props.login.msg;
-        if (message === 'loginSuccess') {
+        var loginMessage = this.props.login.msg;
+        if (loginMessage === 'loginSuccess') {
             this.props.getModal(false);
         }
     }

@@ -12,18 +12,32 @@ import {
 
 import RegisterAction from '../actions/RegisterAction.js';
 
+// bring in register message from root reducer
+
+
 class Register extends Component {
     constructor(props) {
         super(props);
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
     }
 
+    componentDidUpdate(){
+        var registerMessage = this.props.register.msg;
+        console.log('*************************************')
+        console.log(registerMessage)
+        console.log('*************************************')
+        if(registerMessage === "userExists"){
+            alert(registerMessage);
+        }
+
+    }
     handleRegistrationSubmit(event) {
         event.preventDefault();
         var username = event.target[0].value;
         var email = event.target[1].value;
         var password = event.target[2].value;
         var repeatPassword = event.target[3].value;
+
 
         if (password !== repeatPassword) {
             alert('Passwords do not match');
@@ -34,6 +48,7 @@ class Register extends Component {
                 password: password
             });
         }
+
     }
 
     render() {
@@ -89,7 +104,7 @@ class Register extends Component {
 
 function mapStateToProps(state) {
     return {
-
+        register: state.register
     }
 }
 

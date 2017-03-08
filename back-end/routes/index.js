@@ -23,10 +23,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', (req,res,next)=>{
-    console.log("meep");
-    console.log(bcrypt.hashSync("drew"));
+
+    // pull in username and password from login action
     var username = req.body.username;
     var password = req.body.password;
+
+    // Look into database to see if there is a user that matches the username entered
     var findUserQuery = "select * from user_info where username = ?";
     connection.query(findUserQuery, [username], (error,results,fields)=>{
         if (error) throw error;
@@ -64,13 +66,27 @@ router.post('/register', (req, res, body) => {
     var email = req.body.email;
     var password = bcrypt.hashSync(req.body.password);
 
-    var insertUserQuery = `INSERT INTO user_info (username, password, email_address) VALUES (?, ?, ?)`;
-    connection.query(insertUserQuery, [username, password, email], (error, results, fields) => {
-        if (error) throw error;
-        res.json({
-            msg: 'userInserted'
-        })
-    });
+    // check availability of username before allowing user to sign up
+
+    var selectQuery = 'SELECT * FROM user_info WHERE username = ?'
+    connection.query(selectQuery, [username], (error, results, fields) =>{
+        // if nothing comes back, that means no user exists with this name
+        if (results.length === 0){
+            // enter user into database
+            var insertUserQuery = `INSERT INTO user_info (username, password, email_address) VALUES (?, ?, ?)`;
+            connection.query(insertUserQuery, [username, password, email], (error2, results2, fields2) => {
+                if (error2) throw error2;
+                res.json({
+                    msg: 'userInserted'
+                })
+            });
+        }else{
+            res.json({
+                msg: 'userExists'
+            })
+        }
+    })
+
 });
 
 

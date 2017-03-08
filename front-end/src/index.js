@@ -24,7 +24,7 @@ const store = createStore(
 )
 
 store.subscribe(() => {
-    console.log(store.getState().register);
+    console.log(store.getState());
 })
 
 ReactDOM.render(

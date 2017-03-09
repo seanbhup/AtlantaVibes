@@ -99,3 +99,8 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+/* line 109, ../../compass/sass/styles.scss */
+.in-between-cards {
+  margin-bottom: 50px;
+}

@@ -9,7 +9,7 @@ class FestivalCard extends Component {
         return (
             <div className="wrapper">
                 <div className="container">
-                    <div className="row">
+                    <div className="row in-between-cards">
                         <div className="card-wrapper col-xs-10 col-xs-offset-1">
                             <div className="card-header">
                                 <div className="card-title text-center">
@@ -34,20 +34,20 @@ class FestivalCard extends Component {
                                 <div className="card-lineup col-xs-12 col-md-6 text-center">
                                     <div>Headliner 1 </div>
                                     <div>Headliner 2 </div>
-                                    <div>Headliner 3 </div>                                
+                                    <div>Headliner 3 </div>
                                 </div>
                             </div>
                         {/*place in stars below both the image and the description to the left  */}
-                            
 
-                            
+
+
 
                             <div className='card-comment-body col-xs-8'>
-                                comment body 
+                                comment body
                             </div>
                             <div className='card-rating col-xs-4'>
-                                <button>View More Detail</button>                                
-                                <a target="_blank" href='https://www.musicmidtown.com/'><button>Festival Website</button></a>                                
+                                <button>View More Detail</button>
+                                <a target="_blank" href='https://www.musicmidtown.com/'><button>Festival Website</button></a>
                             </div>
 
                         </div>

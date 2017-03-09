@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Register from './Register.js';
+import {Link} from 'react-router';
 
 class LandingPage extends Component {
 
@@ -25,7 +26,7 @@ class LandingPage extends Component {
                                 <button>UPCOMING</button>
                             </div>
                             <div className="step-2 step col-xs-4">
-                                <button>VIEW ALL</button>
+                                <Link to="/view-all"> <button>VIEW ALL</button></Link>
                             </div>
                             <div className="step-3 step col-xs-4">
                                 <button>TOP RATED/DONATE</button>

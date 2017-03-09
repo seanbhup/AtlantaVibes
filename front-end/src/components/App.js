@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
           <Navbar1 />
-          <LandingPage />
+          {this.props.children}
       </div>
     );
   }

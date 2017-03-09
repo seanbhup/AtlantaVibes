@@ -11,8 +11,12 @@ import FestivalCard from '../components/FestivalCard.js'
 class ViewAll extends Component {
 
     render() {
+        var festivalCards = []
+        this.props.viewAll.map((card, index) => {
+            festivalCards.push(<FestivalCard imageUrl={card.imageUrl} card />)
+        });
         return (
-            <FestivalCard/>
+            {festivalCards}
         )
     }
 }

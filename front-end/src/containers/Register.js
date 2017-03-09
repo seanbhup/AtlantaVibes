@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import {
     Form,
     FormGroup,
-    ControlLabel,
     FormControl,
     Button,
     Col

@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
-import Register from './Register.js';
 import {Link} from 'react-router';
 
+// bring in necessary modules to provide this component with state
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+
+import ViewAllAction from '../actions/ViewAllAction.js';
+
 class LandingPage extends Component {
+    constructor(props) {
+        super(props);
+        this.handleViewAllSubmit = this.handleViewAllSubmit.bind(this);
+    }
 
 
-
+    handleViewAllSubmit(){
+        this.props.viewAll()
+    }
     render() {
         return (
             <div>
@@ -26,7 +38,7 @@ class LandingPage extends Component {
                                 <button>UPCOMING</button>
                             </div>
                             <div className="step-2 step col-xs-4">
-                                <Link to="/view-all"> <button>VIEW ALL</button></Link>
+                                <Link to="/view-all"> <button onClick={this.handleViewAllSubmit}>VIEW ALL</button></Link>
                             </div>
                             <div className="step-3 step col-xs-4">
                                 <button>TOP RATED/DONATE</button>
@@ -40,4 +52,21 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage
+
+
+
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        viewAll: ViewAllAction,
+        
+    },dispatch)
+}
+
+// function mapStateToProps(state){
+//   return {
+      
+//   }
+// }
+
+export default connect(null, mapDispatchToProps)(LandingPage);

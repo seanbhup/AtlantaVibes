@@ -83,3 +83,19 @@ body {
   margin-top: 20px;
   padding-bottom: 20px;
 }
+
+/* line 94, ../../compass/sass/styles.scss */
+.card-comment-body {
+  border: solid 1px green;
+}
+
+/* line 99, ../../compass/sass/styles.scss */
+.card-image-container {
+  padding-top: 20px;
+}
+
+/* line 102, ../../compass/sass/styles.scss */
+.card-image {
+  max-width: 100%;
+  height: auto;
+}

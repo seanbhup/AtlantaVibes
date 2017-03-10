@@ -9,10 +9,9 @@ import topRatedAction from "../actions/TopRatedAction.js";
 
 
 class TopRated extends Component {
-    constructor(props){
-        super(props);
-    }
 
+
+    // make an ajax call to grab the top festivals after TopRated is loaded
     componentDidMount(){
         this.props.getTopFestivals();
 
@@ -21,10 +20,9 @@ class TopRated extends Component {
     render() {
         var festivalCards = [];
         console.log(this.props)
+        // populate the festival cards array with top rated cards
         this.props.topRated.map((card, index) => {
-            festivalCards.push(<FestivalCard
-                                    card={card}
-                                    key={index} />)
+            return festivalCards.push(<FestivalCard card={card} key={index} />)
         });
 
         return (
@@ -37,7 +35,6 @@ class TopRated extends Component {
 }
 
 function mapStateToProps(state){
-    // console.log(state.viewAll);
     return{
         topRated: state.topRated
     }

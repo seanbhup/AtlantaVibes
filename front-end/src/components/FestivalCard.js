@@ -21,7 +21,7 @@ class FestivalCard extends Component {
                             <div className="card-body col-xs-12">
                                 {/*within body, place the festival image on teh left and description on the right */}
                                 <div className="card-image-container col-xs-12 text-center">
-                                    <img className='card-image' src={imageUrl} alt='Festival Picture'/>
+                                    <img className='card-image' src={imageUrl} alt='Festival'/>
                                 </div>
 
                                 <div className='card-rating col-xs-12 text-center'>

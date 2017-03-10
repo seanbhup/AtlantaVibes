@@ -12,12 +12,12 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers/index.js';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
-// import componenets
+// import containers
 
 import LandingPage from './containers/LandingPage.js';
 import ViewAll from './containers/ViewAll.js';
 import TopRated from "./containers/TopRated.js";
-import Upcoming from "./containers/Upcoming.js";
+
 // Instantiate the store obect with createStore method. The reducers param is
 // required. I also pass the login token retreived from locals storage as
 // persistedState. Finally, reduxPromise middleware is passed to assist in my
@@ -40,8 +40,7 @@ ReactDOM.render(
             <Route path="/" component={App} >
               <IndexRoute component={LandingPage} />
               <Route path="/view-all" component={ViewAll} />
-              <Route path="/top-rated" component={TopRated} />
-              <Route path="/upcoming" component={Upcoming} />
+              <Route path="/top-rated" component={TopRated} />              
             </Route>
         </Router>
     </Provider>,

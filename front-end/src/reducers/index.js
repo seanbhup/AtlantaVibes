@@ -5,16 +5,17 @@ import LoginReducer from './LoginReducer.js';
 import RegisterReducer from './RegisterReducer.js';
 import ViewAllReducer from './ViewAllReducer.js';
 import TopRatedReducer from "./TopRatedReducer.js";
-import UpcomingReducer from "./UpcomingReducer.js";
 
+
+// Combine all pieces of state into one store
 const masterReducer = combineReducers({
     loginModal: LoginModalReducer,
     registerModal: RegisterModalReducer,
     login: LoginReducer,
     register: RegisterReducer,
     viewAll: ViewAllReducer,
-    topRated: TopRatedReducer,
-    upcoming: UpcomingReducer
+    topRated: TopRatedReducer
+    
 
 });
 

@@ -44,12 +44,12 @@ body {
 }
 
 /* line 47, ../../compass/sass/styles.scss */
-.how-it-works-wrapper {
+.buttons-wrapper {
   border: 1px solid purple;
 }
 
 /* line 51, ../../compass/sass/styles.scss */
-.step {
+.button-div {
   margin-top: 100px;
   margin-bottom: 100px;
 }

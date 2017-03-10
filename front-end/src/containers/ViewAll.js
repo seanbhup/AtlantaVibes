@@ -9,10 +9,8 @@ import viewAllAction from "../actions/ViewAllAction.js";
 
 
 class ViewAll extends Component {
-    constructor(props){
-        super(props);
-    }
 
+    // make an ajax call to grab the all festivals in order after ViewAll component is loaded
     componentDidMount(){
         this.props.getAllFestivals();
 
@@ -21,10 +19,10 @@ class ViewAll extends Component {
     render() {
         var festivalCards = [];
         console.log(this.props)
+        // populate the festivalCards array with all of the music festivals, ordered by date
         this.props.viewAll.map((card, index) => {
-            festivalCards.push(<FestivalCard
-                                    card={card}
-                                    key={index} />)
+            return festivalCards.push(<FestivalCard card={card} key={index} />)
+
         });
 
         return (
@@ -37,7 +35,6 @@ class ViewAll extends Component {
 }
 
 function mapStateToProps(state){
-    // console.log(state.viewAll);
     return{
         viewAll: state.viewAll
     }

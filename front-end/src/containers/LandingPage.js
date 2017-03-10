@@ -6,22 +6,13 @@ import {Link} from 'react-router';
 // import {bindActionCreators} from 'redux';
 
 
-import ViewAllAction from '../actions/ViewAllAction.js';
-
 class LandingPage extends Component {
-    constructor(props) {
-        super(props);
-        // this.handleViewAllSubmit = this.handleViewAllSubmit.bind(this);
-    }
 
 
-    // handleViewAllSubmit(){
-    //     this.props.viewAll()
-    // }
+
     render() {
         return (
-            <div>
-
+            <div>                
                 <div className="landing-wrapper">
                     <div className="greeting-register-wrapper container-fluid">
                         <div className="row">
@@ -32,16 +23,14 @@ class LandingPage extends Component {
                         </div>
 
                     </div>
-                    <div className="how-it-works-wrapper text-center">
+                    <div className="buttons-wrapper text-center">
                         <div className="row">
-                            <div className="step-1 step col-xs-4">
-                                <Link to="/upcoming"> <button>UPCOMING</button></Link>
+                            
+                            <div className="button-div col-xs-6">
+                                <Link to="/view-all"><button>VIEW ALL</button></Link>
                             </div>
-                            <div className="step-2 step col-xs-4">
-                                <Link to="/view-all"> <button>VIEW ALL</button></Link>
-                            </div>
-                            <div className="step-3 step col-xs-4">
-                                <Link to="/top-rated"> <button>TOP RATED</button></Link>
+                            <div className="button-div col-xs-6">
+                                <Link to="/top-rated"><button>TOP RATED</button></Link>
                             </div>
                         </div>
                     </div>

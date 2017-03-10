@@ -13,7 +13,7 @@ var connection = mysql.createConnection ({
 });
 connection.connect();
 
-/* GET users listing. */
+// Get all festivals in order from the database and send it back to the front end 
 router.get('/viewAll', function(req, res, next) {
 
     var selectAllQuery = `SELECT * FROM festivals ORDER BY start_date asc;`;
@@ -24,6 +24,7 @@ router.get('/viewAll', function(req, res, next) {
 });
 
 
+// Get only the festivals that have a rating over 6 and pass them to the front-end 
 router.get("/topRated", function(req,res,next){
     var selectTopRatedQuery = `SELECT * FROM festivals WHERE rating > 6 ORDER BY rating desc`;
     connection.query(selectTopRatedQuery, (error,results,fields)=>{
@@ -33,9 +34,7 @@ router.get("/topRated", function(req,res,next){
     });
 });
 
-router.get("/upcoming", function(req,res,next){
-    var selectUpcomingQuery = `SELECT * FROM festivals WHERE start_date `
-})
+
 
 
 

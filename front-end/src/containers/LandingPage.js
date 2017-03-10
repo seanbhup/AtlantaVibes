@@ -35,13 +35,13 @@ class LandingPage extends Component {
                     <div className="how-it-works-wrapper text-center">
                         <div className="row">
                             <div className="step-1 step col-xs-4">
-                                <button>UPCOMING</button>
+                                <Link to="/upcoming"> <button>UPCOMING</button></Link>
                             </div>
                             <div className="step-2 step col-xs-4">
                                 <Link to="/view-all"> <button>VIEW ALL</button></Link>
                             </div>
                             <div className="step-3 step col-xs-4">
-                                <button>TOP RATED/DONATE</button>
+                                <Link to="/top-rated"> <button>TOP RATED</button></Link>
                             </div>
                         </div>
                     </div>

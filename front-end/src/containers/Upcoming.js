@@ -5,23 +5,23 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import FestivalCard from '../components/FestivalCard.js';
-import viewAllAction from "../actions/ViewAllAction.js";
+import upcomingAction from "../actions/UpcomingAction.js";
 
 
-class ViewAll extends Component {
+class Upcoming extends Component {
     constructor(props){
         super(props);
     }
 
     componentDidMount(){
-        this.props.getAllFestivals();
+        this.props.getUpcomingFestivals();
 
     }
 
     render() {
         var festivalCards = [];
         console.log(this.props)
-        this.props.viewAll.map((card, index) => {
+        this.props.upcoming.map((card, index) => {
             festivalCards.push(<FestivalCard
                                     card={card}
                                     key={index} />)
@@ -39,16 +39,16 @@ class ViewAll extends Component {
 function mapStateToProps(state){
     // console.log(state.viewAll);
     return{
-        viewAll: state.viewAll
+        upcoming: state.upcoming
     }
 }
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        getAllFestivals: viewAllAction
+        getUpcomingFestivals: upcomingAction
     }, dispatch)
 
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewAll);
+export default connect(mapStateToProps, mapDispatchToProps)(Upcoming);

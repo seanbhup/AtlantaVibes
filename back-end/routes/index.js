@@ -34,6 +34,7 @@ router.post('/login', (req,res,next)=>{
         if (error) throw error;
         if (results.length === 0){
             res.json({
+                isLoggedIn: false,
                 msg: "badUsername"
             });
             console.log(results);
@@ -41,20 +42,20 @@ router.post('/login', (req,res,next)=>{
             checkHash = bcrypt.compareSync(password, results[0].password);
             if (checkHash === false){
                 res.json({
+                    isLoggedIn: false,
                     msg: "loginFailure"
                 });
-                console.log(results);
             }else{
                 var token = randtoken.uid(40);
                 var insertToken = "update user_info set token=? where username=?";
                 connection.query(insertToken, [token, username], (error2,results2)=>{
                     console.log(token);
                     res.json({
+                        isLoggedIn: true,
                         msg: "loginSuccess",
                         token: token,
                         name: results[0].username
                     });
-                    console.log(results);
                 });
             };
         }

@@ -8,24 +8,20 @@ import {Link} from 'react-router';
 
 class LandingPage extends Component {
 
-
-
     render() {
         return (
-            <div>                
+            <div>
                 <div className="landing-wrapper">
                     <div className="greeting-register-wrapper container-fluid">
                         <div className="row">
                             <div className="col-xs-12">
 
                             </div>
-
                         </div>
-
                     </div>
                     <div className="buttons-wrapper text-center">
                         <div className="row">
-                            
+
                             <div className="button-div col-xs-6">
                                 <Link to="/view-all"><button>VIEW ALL</button></Link>
                             </div>

@@ -25,8 +25,7 @@ class Login extends Component {
         this.props.loginAction({
             username: username,
             password: password
-        })
-        // console.log(username, password)
+        });
     }
 
     componentDidMount() {
@@ -34,7 +33,6 @@ class Login extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props.login);
         var loginMessage = this.props.login.msg;
         if (loginMessage === 'loginSuccess') {
             this.props.getModal(false);

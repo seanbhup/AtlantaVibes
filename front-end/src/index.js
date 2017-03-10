@@ -22,16 +22,21 @@ import TopRated from "./containers/TopRated.js";
 // required. I also pass the login token retreived from locals storage as
 // persistedState. Finally, reduxPromise middleware is passed to assist in my
 // ajax requests.
+import { loadState, saveState } from './localStorage';
+const persistedState = loadState();
+
 const store = createStore(
     reducers,
-    // persistedState,
+    persistedState,
     applyMiddleware(
         reduxPromise
     )
 )
 
 store.subscribe(() => {
-    // console.log(store.getState());
+    saveState({
+        login: store.getState().login
+    })
 })
 
 ReactDOM.render(
@@ -40,7 +45,7 @@ ReactDOM.render(
             <Route path="/" component={App} >
               <IndexRoute component={LandingPage} />
               <Route path="/view-all" component={ViewAll} />
-              <Route path="/top-rated" component={TopRated} />              
+              <Route path="/top-rated" component={TopRated} />
             </Route>
         </Router>
     </Provider>,

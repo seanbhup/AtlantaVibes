@@ -3,27 +3,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 import LoginModal from "./LoginModal.js";
+import Authorization from "./Authorization.js";
 import RegisterModal from "./RegisterModal.js"
 import loginModalAction from '../actions/LoginModalAction.js'
 import registerModalAction from "../actions/RegisterModalAction.js"
 
 class Navbar1 extends Component {
     constructor(props){
-        super(props)
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleRegisterClick = this.handleRegisterClick.bind(this);
-    }
-
-    handleLoginClick(){
-        this.props.getLoginModal({
-            showModal: true
-        })
-    }
-
-    handleRegisterClick(){
-        this.props.getRegisterModal({
-            showModal: true
-        })
+        super(props);
     }
 
     render() {
@@ -48,10 +35,7 @@ class Navbar1 extends Component {
                                 <MenuItem eventKey={3.3}>Separated link</MenuItem>
                             </NavDropdown>
                         </Nav>
-                        <Nav pullRight>
-                            <NavItem onClick={this.handleLoginClick} href="#">Login</NavItem>
-                            <NavItem onClick={this.handleRegisterClick} href="#">Register</NavItem>
-                        </Nav>
+                        <Authorization />
                     </Navbar.Collapse>
                 </Navbar>
 

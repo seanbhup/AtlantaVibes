@@ -5,6 +5,7 @@ import LoginReducer from './LoginReducer.js';
 import RegisterReducer from './RegisterReducer.js';
 import ViewAllReducer from './ViewAllReducer.js';
 import TopRatedReducer from "./TopRatedReducer.js";
+import FestivalDetailReducer from "./FestivalDetailReducer.js";
 
 
 // Combine all pieces of state into one store
@@ -14,7 +15,8 @@ const masterReducer = combineReducers({
     login: LoginReducer,
     register: RegisterReducer,
     viewAll: ViewAllReducer,
-    topRated: TopRatedReducer
+    topRated: TopRatedReducer,
+    festivalDetail: FestivalDetailReducer
     
 
 });

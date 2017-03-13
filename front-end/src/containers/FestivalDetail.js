@@ -5,16 +5,19 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import FestivalCard from '../components/FestivalCard.js';
-import viewAllAction from "../actions/ViewAllAction.js";
+import FestivalDetailAction from "../actions/FestivalDetailAction.js";
 
 
 class FestivalDetail extends Component {
 
     // make an ajax call to grab the all festivals in order after ViewAll component is loaded
-    // componentDidMount(){
-    //     this.props.getAllFestivals();
+    componentDidMount(){
+        // grab festival name
+        var festivalName = this.props.params.festival;
+        this.props.getFestivalDetail({festivalName: festivalName});
 
-    // }
+
+    }
 
     render() {
         // var festivalCards = [];
@@ -36,19 +39,18 @@ class FestivalDetail extends Component {
     }
 }
 
-export default FestivalDetail;
 // function mapStateToProps(state){
 //     return{
 //         viewAll: state.viewAll
 //     }
 // }
 
-// function mapDispatchToProps(dispatch){
-//     return bindActionCreators({
-//         getAllFestivals: viewAllAction
-//     }, dispatch)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        getFestivalDetail: FestivalDetailAction
+    }, dispatch)
 
-// }
+}
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ViewAll);
+export default connect(null, mapDispatchToProps)(FestivalDetail);

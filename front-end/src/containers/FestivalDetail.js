@@ -14,7 +14,7 @@ class FestivalDetail extends Component {
     componentDidMount(){
         // grab festival name
         var festivalName = this.props.params.festival;
-        this.props.getFestivalDetail({festivalNameKey: festivalName});
+        this.props.getFestivalDetail({festivalName: festivalName});
 
 
     }

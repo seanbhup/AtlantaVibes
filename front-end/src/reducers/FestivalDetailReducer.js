@@ -1,8 +1,7 @@
 export default function(state = [], action){
 
 	switch(action.type){
-		case "FESTIVAL_DETAIL":
-			console.log('festival detail reducer ;) ')
+		case "FESTIVAL_DETAIL":			
 			return action.payload;
 		default:
 			return state;

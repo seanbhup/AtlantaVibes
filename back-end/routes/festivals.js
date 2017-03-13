@@ -13,6 +13,11 @@ var connection = mysql.createConnection ({
 });
 connection.connect();
 
+router.get('/festivalDetail', function(req, res, next) {
+    // res.json(req.body);
+    console.log(req.query);
+})
+
 // Get all festivals in order from the database and send it back to the front end 
 router.get('/viewAll', function(req, res, next) {
 

@@ -35,6 +35,7 @@ const store = createStore(
 )
 
 store.subscribe(() => {
+    console.log(store.getState());
     saveState({
         login: store.getState().login
     })

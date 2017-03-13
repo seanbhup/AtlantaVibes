@@ -14,21 +14,31 @@ var connection = mysql.createConnection ({
 connection.connect();
 
 router.use('/festivalDetail', function(req, res, next) {
-    // res.json(req.query);
-    console.log(req.query.festivalName);
-    var selectAllQuery = `SELECT * FROM festivals WHERE name = "${req.query.festivalName}"`;
+    var festivalName;
+    festivalName = req.query.festivalName;
+    console.log(festivalName);
+    // This block of code is for viewing res.json when no festival was sent,
+    // it hard codes to SweetWater 420 Fest.
+    // if (req.query.festivalName) {
+    //     festivalName = req.query.festivalName;
+    // } else {
+    //     festivalName = "SweetWater 420 Fest";
+    // }
+    var selectAllQuery = `SELECT * FROM festivals WHERE name = "${festivalName}"`;
     connection.query(selectAllQuery, (error, results, fields) =>{
         if (error) throw error;
-        console.log(results[0].id)
         var commentId = results[0].id;
         var secondQuery = `SELECT * FROM comments WHERE festival_id = ${commentId}`
         connection.query(secondQuery, (error2, results2, fields2) =>{
             if (error2) throw error2;
             console.log(results2);
-            res.json(results2);
-        })
-    })
-})
+            res.json({
+                festival: results[0],
+                comments: results2
+            });
+        });
+    });
+});
 
 // Get all festivals in order from the database and send it back to the front end
 router.get('/viewAll', function(req, res, next) {

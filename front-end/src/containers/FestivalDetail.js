@@ -14,43 +14,84 @@ class FestivalDetail extends Component {
     componentDidMount(){
         // grab festival name
         var festivalName = this.props.params.festival;
-        this.props.getFestivalDetail({festivalName: festivalName});
-
-
+        this.props.getFestivalDetail({
+            festivalName: festivalName
+        });
     }
 
+
+
     render() {
-        // var festivalCards = [];
-        // console.log(this.props)
-        // // populate the festivalCards array with all of the music festivals, ordered by date
-        // this.props.viewAll.map((card, index) => {
-        //     return festivalCards.push(<FestivalCard card={card} key={index} />)
+        console.log(this.props.festivalDetail);
+        if (this.props.festivalDetail === null) {
+            return(
+                <div>asdf</div>
+            )
+        } else {
+            var imageUrl = `http://localhost:3000/images/${this.props.festivalDetail.festival.card_image}`;
+            var commentsArray = [];
+            var comments = this.props.festivalDetail.comments;
+            comments.map((comment, index) => {
+                return commentsArray.push(<div className="comment" key={index}>{comment.comment}</div>)
+            })
+            return(
+                <div className="wrapper">
+                    <div className="container">
+                        <div className="row in-between-cards">
+                            <div className="card-wrapper col-xs-10 col-xs-offset-1">
+                                <div className="card-header">
+                                    <div className="card-title text-center">
+                                        {this.props.festivalDetail.festival.name}
+                                    </div>
+                                </div>
 
-        // });
+                                <div className="card-body col-xs-12">
+                                    {/*within body, place the festival image on teh left and description on the right */}
+                                    <div className="card-image-container col-xs-12 text-center">
+                                        <img className='card-image' src={imageUrl} alt='Festival'/>
+                                    </div>
 
-        // return (
-        //     <div>
-        //         {festivalCards}
-        //     </div>
-        // )
-        return (
-            <div> festival detail</div>
-        )
+                                    <div className='card-rating col-xs-12 text-center'>
+                                        {this.props.festivalDetail.festival.rating}
+                                    </div>
+
+                                    <div className="card-description col-xs-12 col-md-6 text-center">
+                                        {this.props.festivalDetail.festival.description}
+                                    </div>
+
+                                    <div className="card-lineup col-xs-12 col-md-6 text-center">
+                                        {this.props.festivalDetail.festival.headliners}
+                                    </div>
+                                </div>
+                            {/*place in stars below both the image and the description to the left  */}
+
+
+
+
+                                <div className='card-comment-body col-xs-8'>
+                                    {commentsArray}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
     }
 }
 
-// function mapStateToProps(state){
-//     return{
-//         viewAll: state.viewAll
-//     }
-// }
+function mapStateToProps(state){
+    return{
+        festivalDetail: state.festivalDetail
+    }
+}
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
         getFestivalDetail: FestivalDetailAction
     }, dispatch)
-
 }
 
 
-export default connect(null, mapDispatchToProps)(FestivalDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(FestivalDetail);

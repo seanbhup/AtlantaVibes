@@ -17,6 +17,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import LandingPage from './containers/LandingPage.js';
 import ViewAll from './containers/ViewAll.js';
 import TopRated from "./containers/TopRated.js";
+import FestivalDetail from './containers/FestivalDetail.js';
 
 // Instantiate the store obect with createStore method. The reducers param is
 // required. I also pass the login token retreived from locals storage as
@@ -45,6 +46,7 @@ ReactDOM.render(
             <Route path="/" component={App} >
               <IndexRoute component={LandingPage} />
               <Route path="/view-all" component={ViewAll} />
+              <Route path='/view-more/:festival' component={FestivalDetail} />
               <Route path="/top-rated" component={TopRated} />
             </Route>
         </Router>

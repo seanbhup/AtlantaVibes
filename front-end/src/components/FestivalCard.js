@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router";
 
 
 
@@ -6,7 +7,12 @@ import React, {Component} from "react";
 class FestivalCard extends Component {
 
     render() {
-        var imageUrl = `http://localhost:3000/images/${this.props.card.card_image}`
+        var imageUrl = `http://localhost:3000/images/${this.props.card.card_image}`;
+        var viewMoreDetailLinkTag = '/view-more/' + this.props.card.name;
+        // encode link tag to avoid special characters and spaces
+        viewMoreDetailLinkTag = encodeURI((viewMoreDetailLinkTag));
+
+
         return (
             <div className="wrapper">
                 <div className="container">
@@ -45,7 +51,7 @@ class FestivalCard extends Component {
                                 {/* {this.props.card.comments} */}
                             </div>
                             <div className='card-rating col-xs-4'>
-                                <button>View More Detail</button>
+                                <Link to={viewMoreDetailLinkTag}><button>View More Detail</button></Link>
                                 <a target="_blank" href={this.props.card.festival_url}><button>Festival Website</button></a>
                             </div>
 

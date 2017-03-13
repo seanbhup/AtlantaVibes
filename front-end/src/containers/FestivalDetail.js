@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 
 import FestivalCard from '../components/FestivalCard.js';
 import FestivalDetailAction from "../actions/FestivalDetailAction.js";
+import Comments from '../components/Comments.js'
 
 
 class FestivalDetail extends Component {
@@ -31,9 +32,9 @@ class FestivalDetail extends Component {
             var imageUrl = `http://localhost:3000/images/${this.props.festivalDetail.festival.card_image}`;
             var commentsArray = [];
             var comments = this.props.festivalDetail.comments;
-            comments.map((comment, index) => {
-                return commentsArray.push(<div className="comment" key={index}>{comment.comment}</div>)
-            })
+            // comments.map((comment, index) => {
+            //     return commentsArray.push(<div className="comment" key={index}>{comment.comment}</div>)
+            // })
             return(
                 <div className="wrapper">
                     <div className="container">
@@ -69,7 +70,7 @@ class FestivalDetail extends Component {
 
 
                                 <div className='card-comment-body col-xs-8'>
-                                    {commentsArray}
+                                    <Comments comments={comments} />
                                 </div>
                             </div>
                         </div>

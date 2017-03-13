@@ -5,7 +5,7 @@ var router = express.Router();
 // MySql db connection and dependicies
 var mysql = require('mysql');
 var config = require("../config/config.js");
-var connection = mysql.createConnection ({
+var connection = mysql.createConnection({
     host: config.host,
     user: config.user,
     password: config.password,
@@ -25,11 +25,13 @@ router.use('/festivalDetail', function(req, res, next) {
     //     festivalName = "SweetWater 420 Fest";
     // }
     var selectAllQuery = `SELECT * FROM festivals WHERE name = "${festivalName}"`;
-    connection.query(selectAllQuery, (error, results, fields) =>{
+    connection.query(selectAllQuery, (error, results, fields) => {
         if (error) throw error;
         var commentId = results[0].id;
-        var secondQuery = `SELECT * FROM comments WHERE festival_id = ${commentId}`
-        connection.query(secondQuery, (error2, results2, fields2) =>{
+        var secondQuery = `SELECT user_info.username, user_info.avatar_the_last_airbender, comment, festival_id, user_id FROM comments
+        INNER JOIN user_info ON comments.user_id = user_info.id
+        WHERE festival_id = ${commentId}`;
+        connection.query(secondQuery, (error2, results2, fields2) => {
             if (error2) throw error2;
             console.log(results2);
             res.json({
@@ -52,9 +54,9 @@ router.get('/viewAll', function(req, res, next) {
 
 
 // Get only the festivals that have a rating over 6 and pass them to the front-end
-router.get("/topRated", function(req,res,next){
+router.get("/topRated", function(req, res, next) {
     var selectTopRatedQuery = `SELECT * FROM festivals WHERE rating > 6 ORDER BY rating desc`;
-    connection.query(selectTopRatedQuery, (error,results,fields)=>{
+    connection.query(selectTopRatedQuery, (error, results, fields) => {
         // console.log(fields, "drew the eeper")
         if (error) throw error;
         res.json(results);

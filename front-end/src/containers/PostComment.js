@@ -9,52 +9,49 @@ import PostCommentAction from '../actions/PostCommentAction.js';
 class PostComment extends Component {
     constructor(props) {
         super(props);
-        
+
         this.submitPost = this.submitPost.bind(this);
     }
 
     submitPost(event){
-
-        // stop the user from posting if they are not logged in 
+        event.preventDefault();
+        // stop the user from posting if they are not logged in
         if (this.props.loginInfo.isLoggedIn === false){
             alert('We would love to hear what you have to say! Please log in before posting! :D');
-
         }else{
-            event.preventDefault();
-
             //grab time to send to backend with message
-            var timestamp = Date.now();        
+            var timestamp = Date.now();
 
             var username = this.props.loginInfo.name;
 
-            var userPost = event.target.children[0].children[0].value;       
+            var userPost = event.target.children[0].children[0].value;
             var festivalName = this.props.festivalName;
-            var festivalId = this.props.festivalId; 
-            
+            var festivalId = this.props.festivalId;
+
             // pass userPost, who is logged in and time of post to backend
             this.props.postComment(
                 {
                     timestamp: timestamp,
                     username: username,
                     userPost: userPost,
-                    festivalName: festivalName,        
-                    festivalId: festivalId            
+                    festivalName: festivalName,
+                    festivalId: festivalId
                 }
             );
         }
 
-        
+
     }
 
     render() {
         return (
             <div>
-                
-                <form onSubmit={this.submitPost}>                    
-                    <FormGroup controlId="formControlsTextarea">                    
+
+                <form onSubmit={this.submitPost}>
+                    <FormGroup controlId="formControlsTextarea">
                         <FormControl componentClass="textarea" placeholder="Post A Comment" />
                         <Button bsStyle='success' type='submit' block>Post</Button>
-                    </FormGroup>    
+                    </FormGroup>
 
                 </form>
             </div>
@@ -67,12 +64,12 @@ function mapStateToProps(state){
     return{
         loginInfo: state.login
     }
-    
+
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        postComment: PostCommentAction        
+        postComment: PostCommentAction
     }, dispatch);
 }
 

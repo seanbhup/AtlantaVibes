@@ -9,9 +9,6 @@ import loginModalAction from '../actions/LoginModalAction.js'
 import registerModalAction from "../actions/RegisterModalAction.js"
 
 class Navbar1 extends Component {
-    constructor(props){
-        super(props);
-    }
 
     render() {
         return (

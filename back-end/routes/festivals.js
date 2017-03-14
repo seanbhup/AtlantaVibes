@@ -13,12 +13,33 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-router.post('/postComment')
+router.post('/postComment', (req, res, next) => {
+    var time = req.body.timestamp;
+    var festival_id = req.body.festivalId;
+    var comment = req.body.userPost;
+    var username = req.body.username;
+    var user_id;
+
+    var getUserQuery = `SELECT id FROM user_info WHERE username = ?`;
+    connection.query(getUserQuery, [username], (error, results, fields) => {
+        if (error) throw error;
+        user_id = results[0].id;
+        var insertCommentQuery = `INSERT INTO comments (user_id, comment, festival_id, timestamp) VALUES (?, ?, ?, ?)`;
+        connection.query(insertCommentQuery, [user_id, comment, festival_id, time], (error2, results2, fields2) => {
+            if (error2) throw error2;
+            console.log(results2);
+            res.json({
+                comment: comment,
+                username: username,
+                time: time
+            });
+        });
+    });
+});
 
 router.use('/festivalDetail', function(req, res, next) {
     var festivalName;
     festivalName = req.query.festivalName;
-    console.log(festivalName);
     // This block of code is for viewing res.json when no festival was sent,
     // it hard codes to SweetWater 420 Fest.
     // if (req.query.festivalName) {
@@ -35,7 +56,6 @@ router.use('/festivalDetail', function(req, res, next) {
         WHERE festival_id = ${commentId}`;
         connection.query(secondQuery, (error2, results2, fields2) => {
             if (error2) throw error2;
-            console.log(results2);
             res.json({
                 festival: results[0],
                 comments: results2

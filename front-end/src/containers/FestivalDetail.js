@@ -3,8 +3,6 @@ import React, {Component} from "react";
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
-import FestivalCard from '../components/FestivalCard.js';
 import FestivalDetailAction from "../actions/FestivalDetailAction.js";
 import Comments from '../components/Comments.js';
 import PostComment from '../containers/PostComment.js';
@@ -22,20 +20,14 @@ class FestivalDetail extends Component {
     }
 
 
-
     render() {
-        console.log(this.props.festivalDetail);
         if (this.props.festivalDetail === null) {
             return(
                 <div>asdf</div>
             )
         } else {
             var imageUrl = `http://localhost:3000/images/${this.props.festivalDetail.festival.card_image}`;
-            var commentsArray = [];
             var comments = this.props.festivalDetail.comments;
-            // comments.map((comment, index) => {
-            //     return commentsArray.push(<div className="comment" key={index}>{comment.comment}</div>)
-            // })
             return(
                 <div className="wrapper">
                     <div className="container">

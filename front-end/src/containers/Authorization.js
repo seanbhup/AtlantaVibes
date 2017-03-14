@@ -33,7 +33,6 @@ class Authorization extends Component {
 
     render() {
         if (this.props.loginInfo !== null) {
-            console.log(this.props.loginInfo);
             if (this.props.loginInfo.isLoggedIn) {
                 return (
                     <Nav pullRight>

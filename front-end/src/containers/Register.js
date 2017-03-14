@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
 import {
     Form,
     FormGroup,
@@ -9,7 +10,8 @@ import {
     Col
 } from 'react-bootstrap';
 
-import RegisterAction from '../actions/RegisterAction.js';
+import registerAction from '../actions/RegisterAction.js';
+import registerModalAction from '../actions/RegisterModalAction.js';
 
 // bring in register message from root reducer
 
@@ -40,7 +42,15 @@ class Register extends Component {
             alert('Passwords do not match');
         } else {
             this.props.registerAction({username: username, email: email, password: password});
+            
+            /* close modal upon successful register*/
+            this.props.getModal({
+                showModal: false
+            })
         }
+
+
+
 
     }
 
@@ -90,7 +100,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        registerAction: RegisterAction
+        registerAction: registerAction,
+        getModal: registerModalAction
     }, dispatch);
 }
 

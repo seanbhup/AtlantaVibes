@@ -6,7 +6,8 @@ import {bindActionCreators} from 'redux';
 
 import FestivalCard from '../components/FestivalCard.js';
 import FestivalDetailAction from "../actions/FestivalDetailAction.js";
-import Comments from '../components/Comments.js'
+import Comments from '../components/Comments.js';
+import PostComment from '../containers/PostComment.js';
 
 
 class FestivalDetail extends Component {
@@ -70,6 +71,7 @@ class FestivalDetail extends Component {
 
 
                                 <div className='card-comment-body col-xs-8'>
+                                    <PostComment />
                                     <Comments comments={comments} />
                                 </div>
                             </div>

@@ -6,6 +6,7 @@ import RegisterReducer from './RegisterReducer.js';
 import ViewAllReducer from './ViewAllReducer.js';
 import TopRatedReducer from "./TopRatedReducer.js";
 import FestivalDetailReducer from "./FestivalDetailReducer.js";
+import PostCommentReducer from './PostCommentReducer.js';
 
 
 // Combine all pieces of state into one store
@@ -16,7 +17,8 @@ const masterReducer = combineReducers({
     register: RegisterReducer,
     viewAll: ViewAllReducer,
     topRated: TopRatedReducer,
-    festivalDetail: FestivalDetailReducer
+    festivalDetail: FestivalDetailReducer,
+    postComment: PostCommentReducer
     
 
 });

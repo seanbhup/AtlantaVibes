@@ -2,10 +2,10 @@ import $ from 'jquery'
 
 var PostCommentAction = (postCommentData) => {
 
-
+	console.log(postCommentData);
     var thePromise = $.ajax({
         method: 'POST',
-        url: "http://localhost:3000/postComment",
+        url: "http://localhost:3000/festivals/postComment",
         data: postCommentData
     });
     return {

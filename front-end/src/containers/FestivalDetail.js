@@ -71,7 +71,7 @@ class FestivalDetail extends Component {
 
 
                                 <div className='card-comment-body col-xs-8'>
-                                    <PostComment />
+                                    <PostComment festivalName={this.props.festivalDetail.festival.name} festivalId={this.props.festivalDetail.festival.id} />
                                     <Comments comments={comments} />
                                 </div>
                             </div>

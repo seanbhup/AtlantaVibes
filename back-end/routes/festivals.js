@@ -13,6 +13,8 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+router.post('/postComment')
+
 router.use('/festivalDetail', function(req, res, next) {
     var festivalName;
     festivalName = req.query.festivalName;

@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 router.post('/postComment', (req, res, next) => {
-    var time = req.body.timestamp;
+    var timestamp = req.body.timestamp;
     var festival_id = req.body.festivalId;
     var comment = req.body.userPost;
     var username = req.body.username;
@@ -25,13 +25,15 @@ router.post('/postComment', (req, res, next) => {
         if (error) throw error;
         user_id = results[0].id;
         var insertCommentQuery = `INSERT INTO comments (user_id, comment, festival_id, timestamp) VALUES (?, ?, ?, ?)`;
-        connection.query(insertCommentQuery, [user_id, comment, festival_id, time], (error2, results2, fields2) => {
+        connection.query(insertCommentQuery, [user_id, comment, festival_id, timestamp], (error2, results2, fields2) => {
             if (error2) throw error2;
-            console.log(results2);
+            
+            // need to convert the timestamp to a number before sending it back to the front-end so that we can convert it to a date object 
+            timestamp = Number(timestamp);
             res.json({
                 comment: comment,
                 username: username,
-                time: time
+                timestamp: timestamp
             });
         });
     });
@@ -51,7 +53,7 @@ router.use('/festivalDetail', function(req, res, next) {
     connection.query(selectAllQuery, (error, results, fields) => {
         if (error) throw error;
         var commentId = results[0].id;
-        var secondQuery = `SELECT user_info.username, user_info.avatar_the_last_airbender, comment, festival_id, user_id FROM comments
+        var secondQuery = `SELECT user_info.username, user_info.avatar_the_last_airbender, comment, festival_id, user_id, timestamp FROM comments
         INNER JOIN user_info ON comments.user_id = user_info.id
         WHERE festival_id = ${commentId}`;
         connection.query(secondQuery, (error2, results2, fields2) => {

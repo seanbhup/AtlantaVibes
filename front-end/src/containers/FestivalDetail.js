@@ -4,7 +4,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import FestivalDetailAction from "../actions/FestivalDetailAction.js";
-import Comments from '../components/Comments.js';
+import Comments from '../containers/Comments.js';
 import PostComment from '../containers/PostComment.js';
 
 

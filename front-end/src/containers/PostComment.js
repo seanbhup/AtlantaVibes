@@ -19,7 +19,6 @@ class PostComment extends Component {
         if (this.props.loginInfo.isLoggedIn === false){
             alert('We would love to hear what you have to say! Please log in before posting! :D');
         }else{
-            //grab time to send to backend with message
             var timestamp = Date.now();
 
             var username = this.props.loginInfo.name;
@@ -27,6 +26,11 @@ class PostComment extends Component {
             var userPost = event.target.children[0].children[0].value;
             var festivalName = this.props.festivalName;
             var festivalId = this.props.festivalId;
+            if(userPost === ""){
+                alert("You can't post nothing!");
+            }
+            //grab time to send to backend with message
+            
 
 
             // pass userPost, who is logged in and time of post to backend

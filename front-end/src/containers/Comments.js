@@ -18,6 +18,8 @@ class Comments extends Component {
     componentWillReceiveProps(nextProps) {
         // create an array that will hold the set of old comments in addition to the new comment
         var commentsArrayWithNewComment = this.state.comments;
+        console.log(nextProps.newComment);
+        console.log(typeof nextProps.newComment.timestamp);
         // add the new comment to the array
         commentsArrayWithNewComment.unshift(nextProps.newComment);
         // rerender the page with the new set of comments
@@ -29,13 +31,20 @@ class Comments extends Component {
     }
 
     render() {
+        
         let commentsArray = []
-        this.state.comments.map((comment, index) => {
+        this.state.comments.map((comment, index) => {            
+
+            var date = new Date(comment.timestamp)
+            var dateString = String(date);            
             return commentsArray.push(
-                <tr key={index}>
+                <tr key={index}>                    
                     <td className="comment">
                       <p>{comment.username}</p>
-                      <p>{comment.comment}</p>
+                      <p>{comment.comment}</p>                                            
+                    </td>
+                    <td>
+                        <p>{dateString}</p>                      
                     </td>
 
                 </tr>

@@ -55,7 +55,7 @@ router.use('/festivalDetail', function(req, res, next) {
         var commentId = results[0].id;
         var secondQuery = `SELECT user_info.username, user_info.avatar_the_last_airbender, comment, festival_id, user_id, timestamp FROM comments
         INNER JOIN user_info ON comments.user_id = user_info.id
-        WHERE festival_id = ${commentId}`;
+        WHERE festival_id = ${commentId} ORDER BY timestamp DESC`;
         connection.query(secondQuery, (error2, results2, fields2) => {
             if (error2) throw error2;
             res.json({

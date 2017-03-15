@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
+import dateformat from 'dateformat';
 
 class Comments extends Component {
     constructor(props) {
@@ -36,6 +37,12 @@ class Comments extends Component {
         this.state.comments.map((comment, index) => {            
 
             var date = new Date(comment.timestamp)
+            var niceLookingDate = dateformat(date, 'fullDate');
+            var niceLookingTime = dateformat(date, 'shortTime');
+
+
+            console.log(niceLookingTime); 
+            console.log(niceLookingDate);
             var dateString = String(date);            
             return commentsArray.push(
                 <tr key={index}>                    
@@ -44,7 +51,8 @@ class Comments extends Component {
                       <p>{comment.comment}</p>                                            
                     </td>
                     <td>
-                        <p>{dateString}</p>                      
+                        <p>{niceLookingDate}</p>                      
+                        <p>{niceLookingTime}</p>                      
                     </td>
 
                 </tr>

@@ -18,7 +18,7 @@ const masterReducer = combineReducers({
     viewAll: ViewAllReducer,
     topRated: TopRatedReducer,
     festivalDetail: FestivalDetailReducer,
-    postComment: PostCommentReducer,
+    postedComment: PostCommentReducer
 });
 
 export default masterReducer;

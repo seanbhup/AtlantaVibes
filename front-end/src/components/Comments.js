@@ -10,22 +10,25 @@ class Comments extends Component {
     }
 
     componentDidMount() {
-
         this.setState({
             comments: this.props.posts
-        })
+        });
     }
 
     componentWillReceiveProps(nextProps) {
-            console.log(nextProps);
-        // console.log(this.props)
-        // if (this.props.newComment !== nextProps.newComment) {
-        //     console.log('asdf');
-        // }
+        // create an array that will hold the set of old comments in addition to the new comment
+        var commentsArrayWithNewComment = this.state.comments;
+        // add the new comment to the array
+        commentsArrayWithNewComment.push(nextProps.newComment);
+        // rerender the page with the new set of comments
+        if (this.props.newComment !== nextProps.newComment) {
+            this.setState({
+                comments: commentsArrayWithNewComment
+            })
+        }
     }
 
     render() {
-        console.log(this.props.newComment)
         let commentsArray = []
         this.state.comments.map((comment, index) => {
             return commentsArray.push(

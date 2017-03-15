@@ -20,7 +20,6 @@ class FestivalDetail extends Component {
     }
 
     render() {
-        console.log(this.props.newComment);
         if (this.props.festivalDetail === null) {
             return(
                 <div>asdf</div>

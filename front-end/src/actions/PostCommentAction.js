@@ -1,8 +1,6 @@
 import $ from 'jquery'
 
 var PostCommentAction = (postCommentData) => {
-
-	console.log(postCommentData);
     var thePromise = $.ajax({
         method: 'POST',
         url: "http://localhost:3000/festivals/postComment",
@@ -11,7 +9,7 @@ var PostCommentAction = (postCommentData) => {
     return {
         type: "POST_COMMENT",
         payload: thePromise
-        
+
     }
 }
 

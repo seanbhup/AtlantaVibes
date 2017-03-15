@@ -10,31 +10,22 @@ class Comments extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.posts);
+
         this.setState({
             comments: this.props.posts
         })
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (this.props.posts !== nextProps.posts) {
-    //         console.log(nextProps.posts);
-    //         this.setState({
-    //             comments: nextProps.posts
-    //         });
-    //     }
-    // }
-
-    componentDidUpdate() {
-        // var updatedComments = []
-        // updatedComments.push(this.state.comments);
-        // this.setState({
-        //     comments: updatedComments
-        // });
-        console.log(this.props.newComment);
+    componentWillReceiveProps(nextProps) {
+            console.log(nextProps);
+        // console.log(this.props)
+        // if (this.props.newComment !== nextProps.newComment) {
+        //     console.log('asdf');
+        // }
     }
 
     render() {
+        console.log(this.props.newComment)
         let commentsArray = []
         this.state.comments.map((comment, index) => {
             return commentsArray.push(

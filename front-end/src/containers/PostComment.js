@@ -29,18 +29,14 @@ class PostComment extends Component {
             var festivalId = this.props.festivalId;
 
             // pass userPost, who is logged in and time of post to backend
-            this.props.postComment(
-                {
-                    timestamp: timestamp,
-                    username: username,
-                    userPost: userPost,
-                    festivalName: festivalName,
-                    festivalId: festivalId
-                }
-            );
+            this.props.postComment({
+                timestamp: timestamp,
+                username: username,
+                userPost: userPost,
+                festivalName: festivalName,
+                festivalId: festivalId
+            });
         }
-
-
     }
 
     render() {

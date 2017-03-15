@@ -1,9 +1,10 @@
-export default function(state = {}, action){
+export default function(state = "Test", action){
 	switch(action.type){
 		case "POST_COMMENT":
-			console.log('post comment reducer');
+			console.log(action.payload);
 			return action.payload;
 		default:
+			console.log(state);
 			return state;
 	}
 }

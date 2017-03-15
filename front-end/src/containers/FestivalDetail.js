@@ -19,15 +19,14 @@ class FestivalDetail extends Component {
         });
     }
 
-
     render() {
+        console.log(this.props.newComment);
         if (this.props.festivalDetail === null) {
             return(
                 <div>asdf</div>
             )
         } else {
             var imageUrl = `http://localhost:3000/images/${this.props.festivalDetail.festival.card_image}`;
-            var comments = this.props.festivalDetail.comments;
             return(
                 <div className="wrapper">
                     <div className="container">
@@ -64,7 +63,7 @@ class FestivalDetail extends Component {
 
                                 <div className='card-comment-body col-xs-8'>
                                     <PostComment festivalName={this.props.festivalDetail.festival.name} festivalId={this.props.festivalDetail.festival.id} />
-                                    <Comments comments={comments} />
+                                    <Comments />
                                 </div>
                             </div>
                         </div>
@@ -78,7 +77,8 @@ class FestivalDetail extends Component {
 
 function mapStateToProps(state){
     return{
-        festivalDetail: state.festivalDetail
+        festivalDetail: state.festivalDetail,
+        newComment: state.postedComment
     }
 }
 

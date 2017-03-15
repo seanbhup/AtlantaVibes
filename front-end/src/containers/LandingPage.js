@@ -23,10 +23,10 @@ class LandingPage extends Component {
                         <div className="row">
 
                             <div className="button-div col-xs-6">
-                                <Link to="/view-all"><button>VIEW ALL</button></Link>
+                                <Link to="/view-all"><button className='btn btn-primary'>VIEW ALL</button></Link>
                             </div>
                             <div className="button-div col-xs-6">
-                                <Link to="/top-rated"><button>TOP RATED</button></Link>
+                                <Link to="/top-rated"><button className='btn btn-primary'>TOP RATED</button></Link>
                             </div>
                         </div>
                     </div>

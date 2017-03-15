@@ -22,7 +22,7 @@ class RegisterModal extends Component{
         return (
             <Modal show={this.props.registerModal.showModal} onHide={this.handleModalClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="text-center">Register to start SLAYING CODE</Modal.Title>
+                    <Modal.Title className="text-center">Register for Atlanta Vibes</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Register />

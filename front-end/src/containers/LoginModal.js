@@ -22,7 +22,7 @@ class LoginModal extends Component{
         return (
             <Modal show={this.props.loginModal.showModal} onHide={this.handleModalClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className="text-center">Login to start SLAYING CODE</Modal.Title>
+                    <Modal.Title className="text-center">Login and tell us about a music festival!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Login />

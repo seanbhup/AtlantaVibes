@@ -36,7 +36,8 @@ class Register extends Component {
         var username = event.target[0].value;
         var email = event.target[1].value;
         var password = event.target[2].value;
-        var repeatPassword = event.target[3].value;
+        var repeatPassword = event.target[3].value;        
+        var avatarImage = event.target.elements.uploadAvatar.files[0];        
 
         if (password !== repeatPassword) {
             alert('Passwords do not match');
@@ -82,10 +83,17 @@ class Register extends Component {
                     </Col>
                 </FormGroup>
 
+                <FormGroup controlId="uploadAvatar">
+                    <Col smOffset={2} sm={8}>
+                        <label>Upload a picture (optional)</label>
+                        <FormControl type="file" placeholder="Select an image"/>
+                    </Col>
+                </FormGroup>
+
                 <FormGroup>
                     <Col smOffset={2} sm={8}>
                         <Button className="register-button" bsStyle="warning" bsSize="small" type="submit">
-                            Register FOR PHASER
+                            Register for AtlantaVibes 
                         </Button>
                     </Col>
                 </FormGroup>

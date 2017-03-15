@@ -39,9 +39,26 @@ class Comments extends Component {
             var niceLookingDate = dateformat(date, 'fullDate');
             var niceLookingTime = dateformat(date, 'shortTime');            
             var dateString = String(date);            
-            
+
+
+            // grab a default image from the back end in case the user has not uploaded a photo 
+            var defaultUserImagePath = 'http://localhost:3000/images/avatars/default-user-image.jpg';            
+
+            // grab the image that the user uploaded from the back ends
+            var avatarImageName = comment.avatar_the_last_airbender;
+            var avatarImagePath = 'http://localhost:3000/images/avatars/'+avatarImageName
+
+            // if the user did not upload a picture, use a default image 
+            if (avatarImageName === null){
+                avatarImagePath = defaultUserImagePath;
+            }
+
+
             return commentsArray.push(
-                <tr key={index}>                    
+                <tr key={index}>
+                    <td>
+                        <img className='avatar-image' src={avatarImagePath} />
+                    </td>                    
                     <td className="comment">
                       <p>{comment.username}</p>
                       <p>{comment.comment}</p>                                            

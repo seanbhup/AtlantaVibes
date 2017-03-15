@@ -75,7 +75,7 @@ router.post('/register', type, (req, res, body) => {
     var password = bcrypt.hashSync(req.body.password);
     var tempPath = req.file.path;
     var avatarImageName = req.file.originalname;
-    var targetPath = `public/images/avatars${avatarImageName}`;
+    var targetPath = `public/images/avatars/${avatarImageName}`;
     // check availability of username before allowing user to sign up
 
     var selectQuery = 'SELECT * FROM user_info WHERE username = ?'

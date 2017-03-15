@@ -99,3 +99,9 @@ body {
 .in-between-cards {
   margin-bottom: 50px;
 }
+
+/* line 110, ../../compass/sass/styles.scss */
+.avatar-image {
+  height: 60px;
+  width: 60px;
+}

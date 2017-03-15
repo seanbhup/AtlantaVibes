@@ -20,10 +20,16 @@ router.post('/postComment', (req, res, next) => {
     var username = req.body.username;
     var user_id;
 
-    var getUserQuery = `SELECT id FROM user_info WHERE username = ?`;
+    var getUserQuery = `SELECT id, avatar_the_last_airbender FROM user_info WHERE username = ?`;
     connection.query(getUserQuery, [username], (error, results, fields) => {
         if (error) throw error;
+        // grab the user id and avatar from the database so that we can pass it to the front end
         user_id = results[0].id;
+        var avatar_the_last_airbender = results[0].avatar_the_last_airbender;
+
+        console.log("***************************");
+        console.log(results);
+        console.log("***************************");
         var insertCommentQuery = `INSERT INTO comments (user_id, comment, festival_id, timestamp) VALUES (?, ?, ?, ?)`;
         connection.query(insertCommentQuery, [user_id, comment, festival_id, timestamp], (error2, results2, fields2) => {
             if (error2) throw error2;
@@ -33,7 +39,8 @@ router.post('/postComment', (req, res, next) => {
             res.json({
                 comment: comment,
                 username: username,
-                timestamp: timestamp
+                timestamp: timestamp, 
+                avatar_the_last_airbender: avatar_the_last_airbender               
             });
         });
     });

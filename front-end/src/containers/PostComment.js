@@ -14,7 +14,7 @@ class PostComment extends Component {
     }
 
     submitPost(event){
-        event.preventDefault();
+        // event.preventDefault();
         // stop the user from posting if they are not logged in
         if (this.props.loginInfo.isLoggedIn === false){
             alert('We would love to hear what you have to say! Please log in before posting! :D');
@@ -28,6 +28,7 @@ class PostComment extends Component {
             var festivalName = this.props.festivalName;
             var festivalId = this.props.festivalId;
 
+
             // pass userPost, who is logged in and time of post to backend
             this.props.postComment({
                 timestamp: timestamp,
@@ -36,6 +37,9 @@ class PostComment extends Component {
                 festivalName: festivalName,
                 festivalId: festivalId
             });
+
+            // reset form after submission 
+            event.target.reset();
         }
     }
 

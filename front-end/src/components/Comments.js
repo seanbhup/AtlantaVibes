@@ -19,7 +19,7 @@ class Comments extends Component {
         // create an array that will hold the set of old comments in addition to the new comment
         var commentsArrayWithNewComment = this.state.comments;
         // add the new comment to the array
-        commentsArrayWithNewComment.push(nextProps.newComment);
+        commentsArrayWithNewComment.unshift(nextProps.newComment);
         // rerender the page with the new set of comments
         if (this.props.newComment !== nextProps.newComment) {
             this.setState({

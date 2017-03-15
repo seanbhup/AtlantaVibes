@@ -16,6 +16,13 @@ connection.connect();
 var randtoken = require("rand-token");
 var bcrypt = require('bcrypt-nodejs');
 
+
+// Multer module
+var multer = require('multer');
+var upload = multer({dest: 'public/images/avatars'});
+var type = upload.single('avatarImage');
+var fs = require('fs');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -62,11 +69,13 @@ router.post('/login', (req,res,next)=>{
     });
 })
 
-router.post('/register', (req, res, body) => {
+router.post('/register', type, (req, res, body) => {
     var username = req.body.username;
     var email = req.body.email;
     var password = bcrypt.hashSync(req.body.password);
-
+    var tempPath = req.file.path;
+    var avatarImageName = req.file.originalname;
+    var targetPath = `public/images/avatars${avatarImageName}`;
     // check availability of username before allowing user to sign up
 
     var selectQuery = 'SELECT * FROM user_info WHERE username = ?'
@@ -74,12 +83,21 @@ router.post('/register', (req, res, body) => {
         // if nothing comes back, that means no user exists with this name
         if (results.length === 0){
             // enter user into database
-            var insertUserQuery = `INSERT INTO user_info (username, password, email_address) VALUES (?, ?, ?)`;
-            connection.query(insertUserQuery, [username, password, email], (error2, results2, fields2) => {
-                if (error2) throw error2;
-                res.json({
-                    msg: 'userInserted'
-                })
+            var insertUserQuery = `INSERT INTO user_info (username, password, email_address, avatar_the_last_airbender) VALUES (?, ?, ?, ?)`;
+            fs.readFile(tempPath, (readError, readContents) => {
+                if (readError) throw readError;
+                fs.writeFile(targetPath, readContents, (writeError) => {
+                    if (writeError) throw writeError;
+                    connection.query(insertUserQuery, [username, password, email, avatarImageName], (error2, results2, fields2) => {
+                        if (error2) throw error2;
+                        fs.unlink(tempPath, (unlinkError) => {
+                            if (unlinkError) throw unlinkError;
+                            res.json({
+                                msg: 'userInserted'
+                            });
+                        });
+                    });
+                });
             });
         }else{
             res.json({

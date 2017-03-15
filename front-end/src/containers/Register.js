@@ -36,14 +36,19 @@ class Register extends Component {
         var username = event.target[0].value;
         var email = event.target[1].value;
         var password = event.target[2].value;
-        var repeatPassword = event.target[3].value;        
-        var avatarImage = event.target.elements.uploadAvatar.files[0];        
+        var repeatPassword = event.target[3].value;
+        var avatarImage = event.target.elements.uploadAvatar.files[0];
 
         if (password !== repeatPassword) {
             alert('Passwords do not match');
         } else {
-            this.props.registerAction({username: username, email: email, password: password});
-            
+            this.props.registerAction({
+                username: username,
+                email: email,
+                password: password,
+                avatarImage: avatarImage
+            });
+
             /* close modal upon successful register*/
             this.props.getModal({
                 showModal: false
@@ -93,7 +98,7 @@ class Register extends Component {
                 <FormGroup>
                     <Col smOffset={2} sm={8}>
                         <Button className="register-button" bsStyle="warning" bsSize="small" type="submit">
-                            Register for AtlantaVibes 
+                            Register for AtlantaVibes
                         </Button>
                     </Col>
                 </FormGroup>

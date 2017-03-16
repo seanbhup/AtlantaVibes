@@ -44,7 +44,7 @@ class Authorization extends Component {
                 return(
                     <Nav pullRight>
                         <NavItem className='log-reg-link' onClick={this.handleLoginClick} href="#">Login</NavItem>
-                        <NavItem> | </NavItem>
+                        <NavItem className='pipe'> | </NavItem>
                         <NavItem className='log-reg-link' onClick={this.handleRegisterClick} href="#">Register</NavItem>
                     </Nav>
                 )

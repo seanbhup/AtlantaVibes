@@ -13,3 +13,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+// change this after deploying to target headphone icon 
+// _react2['default'].createElement('span', { className: 'glyphicon glyphicon-headphones' })

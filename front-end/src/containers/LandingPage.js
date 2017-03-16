@@ -12,21 +12,14 @@ class LandingPage extends Component {
         return (
             <div>
                 <div className="landing-wrapper">
+                    {/* greeting-register-wrapper holds background image in*/ }
                     <div className="greeting-register-wrapper">
-                        <div className="row">
-                            <div className="col-xs-12">
-
-                            </div>
+                        <div className='text-center intro-text'>
+                            WELCOME TO ATLANTAVIBES,
+                                <br></br>THE BEST RESOURCE FOR ALL YOU MUSIC FESTIVAL NEEDS                            
                         </div>
                     </div>
-                    <div className="intro-wrapper">
-                        <div className="row">
-                            <div className="text-center intro-text">
-                                WELCOME TO ATLANTAVIBES,
-                                <br></br>THE BEST RESOURCE FOR ALL YOU MUSIC FESTIVAL NEEDS
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div className="buttons-wrapper text-center">
                         <div className="row">
                             <div className="phone-view text-center button-div checkout-text col-xs-12 col-lg-4">

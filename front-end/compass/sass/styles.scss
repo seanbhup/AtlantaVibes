@@ -11,12 +11,14 @@
 
 
 $color12: white;
+$blue: #6699CC;
+$ourRed: #A23E48;
 
 // when we are below 768 pixels
 @media only screen and (max-width: 1200px){
   .button-div{
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
   }
   .phone-view{
     display: block !important;
@@ -24,8 +26,22 @@ $color12: white;
   .computer-view{
     display: none !important;
   }
+
+
 }
 
+@media only screen and (max-width: 768px){
+  .pipe{
+      display: none !important;
+    }
+
+
+  .intro-text{
+      
+      padding-top: 85px !important;
+      padding-bottom: 85px !important;
+  }
+}
 // initially set phone view to hidden
 .phone-view{
   display: none;
@@ -53,29 +69,23 @@ body {
         color: #A23E48 !important;
         font-family: 'Monoton', cursive;
         font-size: 35px;
-
-
     }
 
+}
+
+.landing-wrapper{
+  background-color: $blue !important;
 }
 
 .log-reg-link a{
   font-size: 18px;
 }
 
-
-
-.intro-wrapper{
-    background-color: #6699CC;
+.intro-text{
     font-family: 'Days One', sans-serif;
     font-size: 30px;
-    // .intro-text{
-    //     margin-top: 85px;
-    // }
-}
-
-.intro-text{
-    margin-top:70px;
+    color: white;
+    padding-top: 170px;
 }
 
 .buttons-wrapper{
@@ -114,11 +124,28 @@ body {
     font-size: 35px;
     color: white;
     font-family: 'Days One', sans-serif;
-
-
-
 }
 
+.navbar-toggle{
+  background-color: $blue;
+  border: none;
+  // width: 60px;
+  // height: 50px;
+}
+.glyphicon-headphones{
+  font-size: 18px;
+  color: white;
+}
+
+.navbar-toggle:hover{
+  background-color: $ourRed !important; 
+
+}
+.navbar-toggle:active{
+    background-color: $ourRed !important; 
+}
+  // background-color: $ourRed !important; 
+  
 .buttons-wrapper{
 }
 

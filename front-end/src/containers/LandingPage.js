@@ -19,14 +19,25 @@ class LandingPage extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="intro-wrapper">
+                        <div className="row">
+                            <div className="text-center intro-text">
+                                WELCOME TO ATLANTAVIBES,
+                                <br></br>THE BEST RESOURCE FOR ALL YOU MUSIC FESTIVAL NEEDS
+                            </div>
+                        </div>
+                    </div>
                     <div className="buttons-wrapper text-center">
                         <div className="row">
 
-                            <div className="button-div col-xs-6">
-                                <Link to="/view-all"><button className='btn btn-primary'>VIEW ALL</button></Link>
+                            <div className="button-div col-xs-4">
+                                <Link to="/view-all"><button className='btn'>VIEW ALL</button></Link>
                             </div>
-                            <div className="button-div col-xs-6">
-                                <Link to="/top-rated"><button className='btn btn-primary'>TOP RATED</button></Link>
+                            <div className="text-center button-div checkout-text col-xs-4">
+                                Check out the music scene in Atlanta
+                            </div>
+                            <div className="button-div col-xs-4">
+                                <Link to="/top-rated"><button className='btn'>TOP RATED</button></Link>
                             </div>
                         </div>
                     </div>

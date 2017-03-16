@@ -45,7 +45,7 @@ class Comments extends Component {
             var date = new Date(comment.timestamp)
             var niceLookingDate = dateformat(date, 'fullDate');
             var niceLookingTime = dateformat(date, 'shortTime');
-            var dateString = String(date);
+            // var dateString = String(date);
 
 
             // grab a default image from the back end in case the user has not uploaded a photo
@@ -64,7 +64,7 @@ class Comments extends Component {
             return commentsArray.push(
                 <tr key={index}>
                     <td>
-                        <img className='avatar-image' src={avatarImagePath} />
+                        <img className='avatar-image' alt="Avatar" src={avatarImagePath} />
                     </td>
                     <td className="comment">
                       <p>{comment.username}</p>

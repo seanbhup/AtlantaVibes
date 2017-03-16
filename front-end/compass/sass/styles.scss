@@ -1,3 +1,14 @@
+// font-family: 'Baloo Bhaina', cursive;
+// font-family: 'Sansita', sans-serif;
+// font-family: 'Russo One', sans-serif;
+// font-family: 'Architects Daughter', cursive;
+// font-family: 'Permanent Marker', cursive;
+// font-family: 'Days One', sans-serif;
+// font-family: 'Audiowide', cursive;
+// font-family: 'Patrick Hand', cursive;
+// font-family: 'Monoton', cursive;
+
+
 $color12: white;
 
 .App {
@@ -11,13 +22,42 @@ body {
 
 .navbar {
     border-radius: 0px;
+    background-color: #FFF275;
+    border: none;
+    margin-bottom: 0px;
+    a{
+        color: #A23E48 !important;
+        font-family: 'Monoton', cursive;
+        font-size: 40px;
+
+
+    }
+
+}
+
+.navbar-right{
+    margin-left:100px !important;
+}
+
+.intro-wrapper{
+    background-color: #6699CC;
+    font-family: 'Days One', sans-serif;
+    font-size: 30px;
+    // .intro-text{
+    //     margin-top: 85px;
+    // }
+}
+
+.intro-text{
+    margin-top:70px;
+}
+
+.buttons-wrapper{
+    background-color: #6699CC;
 }
 
 .greeting-register-wrapper{
     height: 400px;
-    // width: 100vw;
-    // background: url("../../public/code-killer.jpg");
-    background-color: lightblue;
     background-size: cover;
 
 }
@@ -44,13 +84,32 @@ body {
 
 }
 
+.checkout-text{
+    font-size: 35px;
+    color: white;
+    font-family: 'Days One', sans-serif;
+
+
+
+}
+
 .buttons-wrapper{
-    border: 1px solid purple
 }
 
 .button-div{
     margin-top:100px;
     margin-bottom:100px;
+
+}
+
+.btn{
+    background-color: white;
+    color: #6699CC;
+    height: 100px;
+    width: 400px;
+    font-family: 'Monoton', cursive;
+    font-size: 30px;
+
 
 }
 

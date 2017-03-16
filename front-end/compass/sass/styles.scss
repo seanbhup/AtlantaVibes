@@ -9,7 +9,31 @@
 // font-family: 'Monoton', cursive;
 
 
+
 $color12: white;
+
+// when we are below 768 pixels
+@media only screen and (max-width: 1200px){
+  .button-div{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .phone-view{
+    display: block !important;
+  }
+  .computer-view{
+    display: none !important;
+  }
+}
+
+// initially set phone view to hidden
+.phone-view{
+  display: none;
+}
+
+.computer-view{
+  display: block;
+}
 
 .App {
   text-align: center;
@@ -28,16 +52,18 @@ body {
     a{
         color: #A23E48 !important;
         font-family: 'Monoton', cursive;
-        font-size: 40px;
+        font-size: 35px;
 
 
     }
 
 }
 
-.navbar-right{
-    margin-left:100px !important;
+.log-reg-link a{
+  font-size: 18px;
 }
+
+
 
 .intro-wrapper{
     background-color: #6699CC;
@@ -59,12 +85,12 @@ body {
 .greeting-register-wrapper{
     height: 400px;
     background-size: cover;
+    background-image: url("../landing-background-gradient.png");
 
 }
 
-.container-fluid{
-    background-image: url("../landing-background-gradient.png");
-    background-image: cover;
+.kill-padding-margin{
+  padding: 0px ;
 }
 
 .greeting{

@@ -4,7 +4,7 @@ import Navbar1 from "../containers/Navbar.js";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='container-fluid kill-padding-margin'>
           <Navbar1 />
           {this.props.children}
       </div>

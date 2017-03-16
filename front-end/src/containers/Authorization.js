@@ -36,24 +36,24 @@ class Authorization extends Component {
             if (this.props.loginInfo.isLoggedIn) {
                 return (
                     <Nav pullRight>
-                        <NavItem>Welcome, {this.props.loginInfo.name}</NavItem>
-                        <NavItem onClick={this.handleLogoutClick} href="#">Logout</NavItem>
+                        <NavItem className='log-reg-link'>Hi, &nbsp; &nbsp; {this.props.loginInfo.name}</NavItem>
+                        <NavItem className='log-reg-link' onClick={this.handleLogoutClick} href="#">Logout</NavItem>
                     </Nav>
                 )
             } else {
                 return(
                     <Nav pullRight>
-                        <NavItem onClick={this.handleLoginClick} href="#">Login</NavItem>
+                        <NavItem className='log-reg-link' onClick={this.handleLoginClick} href="#">Login</NavItem>
                         <NavItem> | </NavItem>
-                        <NavItem onClick={this.handleRegisterClick} href="#">Register</NavItem>
+                        <NavItem className='log-reg-link' onClick={this.handleRegisterClick} href="#">Register</NavItem>
                     </Nav>
                 )
             }
         } else {
             return(
                 <Nav pullRight>
-                    <NavItem onClick={this.handleLoginClick} href="#">Login</NavItem>
-                    <NavItem onClick={this.handleRegisterClick} href="#">Register</NavItem>
+                    <NavItem className='log-reg-link' onClick={this.handleLoginClick} href="#">Login</NavItem>
+                    <NavItem className='log-reg-link' onClick={this.handleRegisterClick} href="#">Register</NavItem>
                 </Nav>
             )
         }

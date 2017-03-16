@@ -21,7 +21,7 @@ class RegisterModal extends Component{
     render() {
         return (
             <Modal show={this.props.registerModal.showModal} onHide={this.handleModalClose}>
-                <Modal.Header closeButton>
+                <Modal.Header className="register-modal-header" closeButton>
                     <Modal.Title className="text-center">Register for Atlanta Vibes</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

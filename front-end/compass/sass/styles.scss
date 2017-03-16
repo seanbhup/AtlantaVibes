@@ -10,9 +10,11 @@
 
 
 
-$color12: white;
+
 $blue: #6699CC;
-$ourRed: #A23E48;
+$topazRed: #A23E48;
+$mango: #FF8C42;
+$sunny: #FFF275;
 
 // when we are below 768 pixels
 @media only screen and (max-width: 1200px){
@@ -37,7 +39,7 @@ $ourRed: #A23E48;
 
 
   .intro-text{
-      
+
       padding-top: 85px !important;
       padding-bottom: 85px !important;
   }
@@ -57,7 +59,7 @@ $ourRed: #A23E48;
 }
 
 body {
-    background-color: $color12;
+    background-color: #fff;
 }
 
 .navbar {
@@ -68,7 +70,7 @@ body {
     a{
         color: #A23E48 !important;
         font-family: 'Monoton', cursive;
-        font-size: 35px;
+        font-size: 32px;
     }
 
 }
@@ -107,7 +109,7 @@ body {
     color: black;
     border: 1px solid black;
     display: inline-block;
-    height:400;
+    height: 400px;
     margin-top: 100px;
 
 }
@@ -138,14 +140,15 @@ body {
 }
 
 .navbar-toggle:hover{
-  background-color: $ourRed !important; 
+  background-color: $topazRed !important;
 
 }
-.navbar-toggle:active{
-    background-color: $ourRed !important; 
-}
-  // background-color: $ourRed !important; 
-  
+
+// .navbar-toggle:active{
+//     background-color: $ourRed !important;
+// }
+  // background-color: $ourRed !important;
+
 .buttons-wrapper{
 }
 
@@ -155,26 +158,58 @@ body {
 
 }
 
-.btn{
-    background-color: white;
-    color: #6699CC;
+.landing-page-btn{
     height: 100px;
     width: 400px;
-    font-family: 'Monoton', cursive;
     font-size: 30px;
+}
 
-
+.btn {
+    background-color: white;
+    color: #6699CC;
+    font-family: 'Monoton', cursive;
 }
 
 .modal-title{
+    font-family: 'Days One', sans-serif;
+}
 
+.modal-header, .modal-footer {
+    // background-color: $topazRed;
+    color: $blue;
+}
+
+.register-modal-header {
+    color: $topazRed;
 }
 
 .login-button, .register-button{
     width:100%;
 }
 
+.login-button {
+    background-color: $blue;
+    color: #fff;
 
+    font-size: 30px;
+    border: none;
+    &:hover {
+        background-color: $mango;
+        color: $blue;
+    }
+}
+
+.register-button {
+    background-color: $topazRed;
+    color: $sunny;
+
+    font-size: 30px;
+    border: none;
+    &:hover {
+        background-color: $sunny;
+        color: $topazRed;
+    }
+}
 
 
 .modal-dialog{

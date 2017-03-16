@@ -37,7 +37,6 @@ class Comments extends Component {
     }
 
     render() {
-        console.log(this.props.comments);
         let commentsArray = []
         this.state.comments.map((comment, index) => {
 

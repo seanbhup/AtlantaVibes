@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Navbar, Nav, NavDropdown, MenuItem} from "react-bootstrap";
+import {Navbar} from "react-bootstrap";
 import LoginModal from "./LoginModal.js";
 import Authorization from "./Authorization.js";
 import RegisterModal from "./RegisterModal.js"
@@ -18,9 +18,11 @@ class Navbar1 extends Component {
                         <Navbar.Brand>
                             <a href="#">AtlantaVibes</a>
                         </Navbar.Brand>
-                        <Navbar.Toggle/>
+                        <Navbar.Toggle>
+                            <span className="glyphicon glyphicon-headphones"></span>
+                        </Navbar.Toggle>
                     </Navbar.Header>
-                    <Navbar.Collapse>                        
+                    <Navbar.Collapse>
                         <Authorization className="login-register"/>
                     </Navbar.Collapse>
                 </Navbar>

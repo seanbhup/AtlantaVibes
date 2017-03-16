@@ -84,7 +84,7 @@ class Register extends Component {
 
                 <FormGroup controlId="formHorizontalPassword">
                     <Col smOffset={2} sm={8}>
-                        <FormControl type="password" placeholder="Password"/>
+                        <FormControl type="password" placeholder="Repeat password"/>
                     </Col>
                 </FormGroup>
 
@@ -98,7 +98,7 @@ class Register extends Component {
                 <FormGroup>
                     <Col smOffset={2} sm={8}>
                         <Button className="register-button" bsStyle="warning" bsSize="small" type="submit">
-                            Register for AtlantaVibes
+                            Register
                         </Button>
                     </Col>
                 </FormGroup>

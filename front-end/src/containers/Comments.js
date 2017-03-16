@@ -11,12 +11,19 @@ class Comments extends Component {
     }
 
     componentDidMount() {
+        // console.log(this.props);
         this.setState({
-            comments: this.props.posts
+            comments: this.props.comments
         });
     }
 
     componentWillReceiveProps(nextProps) {
+        if (this.state.comments !== nextProps.comments){
+            this.setState({
+                comments: nextProps.comments
+            });
+        }
+        console.log(nextProps);
         // create an array that will hold the set of old comments in addition to the new comment
         var commentsArrayWithNewComment = this.state.comments;
         // add the new comment to the array
@@ -30,25 +37,25 @@ class Comments extends Component {
     }
 
     render() {
-        
+        console.log(this.props.comments);
         let commentsArray = []
-        this.state.comments.map((comment, index) => {            
+        this.state.comments.map((comment, index) => {
 
-            // grab time for each comment and make it look nice 
+            // grab time for each comment and make it look nice
             var date = new Date(comment.timestamp)
             var niceLookingDate = dateformat(date, 'fullDate');
-            var niceLookingTime = dateformat(date, 'shortTime');            
-            var dateString = String(date);            
+            var niceLookingTime = dateformat(date, 'shortTime');
+            var dateString = String(date);
 
 
-            // grab a default image from the back end in case the user has not uploaded a photo 
-            var defaultUserImagePath = 'http://localhost:3000/images/avatars/default-user-image.jpg';            
+            // grab a default image from the back end in case the user has not uploaded a photo
+            var defaultUserImagePath = 'http://localhost:3000/images/avatars/default-user-image.jpg';
 
             // grab the image that the user uploaded from the back ends
             var avatarImageName = comment.avatar_the_last_airbender;
             var avatarImagePath = 'http://localhost:3000/images/avatars/'+avatarImageName
 
-            // if the user did not upload a picture, use a default image 
+            // if the user did not upload a picture, use a default image
             if (avatarImageName === null){
                 avatarImagePath = defaultUserImagePath;
             }
@@ -58,14 +65,14 @@ class Comments extends Component {
                 <tr key={index}>
                     <td>
                         <img className='avatar-image' src={avatarImagePath} />
-                    </td>                    
+                    </td>
                     <td className="comment">
                       <p>{comment.username}</p>
-                      <p>{comment.comment}</p>                                            
+                      <p>{comment.comment}</p>
                     </td>
                     <td>
-                        <p>{niceLookingDate}</p>                      
-                        <p>{niceLookingTime}</p>                      
+                        <p>{niceLookingDate}</p>
+                        <p>{niceLookingTime}</p>
                     </td>
 
                 </tr>

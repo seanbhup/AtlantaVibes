@@ -18,7 +18,7 @@ class ViewAll extends Component {
 
     render() {
         var festivalCards = [];
-        console.log(this.props)
+        // console.log(this.props)
         // populate the festivalCards array with all of the music festivals, ordered by date
         this.props.viewAll.map((card, index) => {
             return festivalCards.push(<FestivalCard card={card} key={index} />)

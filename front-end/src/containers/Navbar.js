@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+import {Navbar, Nav, NavDropdown, MenuItem} from "react-bootstrap";
 import LoginModal from "./LoginModal.js";
 import Authorization from "./Authorization.js";
 import RegisterModal from "./RegisterModal.js"
@@ -21,7 +21,7 @@ class Navbar1 extends Component {
                         <Navbar.Toggle/>
                     </Navbar.Header>
                     <Navbar.Collapse>
-                        <Nav>                            
+                        <Nav>
                             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                                 <MenuItem eventKey={3.1}>Action</MenuItem>
                                 <MenuItem eventKey={3.2}>Another action</MenuItem>

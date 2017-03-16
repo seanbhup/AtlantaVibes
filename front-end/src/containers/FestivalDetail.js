@@ -20,6 +20,7 @@ class FestivalDetail extends Component {
     }
 
     render() {
+        console.log(this.props.festivalDetail);
         if (this.props.festivalDetail === null) {
             return(
                 <div>asdf</div>
@@ -62,7 +63,7 @@ class FestivalDetail extends Component {
 
                                 <div className='card-comment-body col-xs-8'>
                                     <PostComment festivalName={this.props.festivalDetail.festival.name} festivalId={this.props.festivalDetail.festival.id} />
-                                    <Comments />
+                                    <Comments comments={this.props.festivalDetail.comments} />
                                 </div>
                             </div>
                         </div>

@@ -44,6 +44,19 @@ $sunny: #FFF275;
       padding-bottom: 85px !important;
   }
 }
+
+@keyframes button-color-change {
+    0%   {background-color: $sunny; color:$topazRed}
+    50% {background-color: $topazRed; color: $sunny}
+    100% {background-color: $sunny; color:$topazRed}
+}
+
+
+.register-label{
+    font-family: 'Days One', sans-serif;
+    color: #A23E48;
+
+}
 // initially set phone view to hidden
 .phone-view{
   display: none;
@@ -77,6 +90,16 @@ body {
 
 .landing-wrapper{
   background-color: $blue !important;
+}
+
+.landing-page-btn{
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.4);
+    background-color: white;
+    color: #6699CC;
+    font-family: 'Monoton', cursive;
+    animation: button-color-change 4s infinite;
+}
+.landing-page-btn:hover{
 }
 
 .log-reg-link a{
@@ -123,7 +146,7 @@ body {
 }
 
 .checkout-text{
-    font-size: 35px;
+    font-size: 40px;
     color: white;
     font-family: 'Days One', sans-serif;
 }
@@ -164,11 +187,6 @@ body {
     font-size: 30px;
 }
 
-.btn {
-    background-color: white;
-    color: #6699CC;
-    font-family: 'Monoton', cursive;
-}
 
 .modal-title{
     font-family: 'Days One', sans-serif;
@@ -176,7 +194,7 @@ body {
 
 .modal-header, .modal-footer {
     // background-color: $topazRed;
-    color: $blue;
+    color: $topazRed;
 }
 
 .register-modal-header {
@@ -185,17 +203,18 @@ body {
 
 .login-button, .register-button{
     width:100%;
+    font-family: 'Monoton', cursive;
 }
 
 .login-button {
-    background-color: $blue;
-    color: #fff;
+    background-color: $topazRed;
+    color: $sunny;
 
     font-size: 30px;
     border: none;
     &:hover {
-        background-color: $mango;
-        color: $blue;
+        background-color: $sunny;
+        color: $topazRed;
     }
 }
 
@@ -222,16 +241,25 @@ body {
 }
 
 .card-wrapper {
-  border: 1px solid green;
   height: 500px;
+  // background-color: $blue;
+  font-family: 'Days One', sans-serif;
+  background-color:$topazRed;
+  color:white;
 
 }
 
 .card-header {
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
   width: 100%;
   margin-top: 20px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
+
+}
+
+.card-title{
+    font-family: 'Monoton', cursive;
+    font-size: 40px;
 
 }
 
@@ -250,8 +278,19 @@ body {
 
 }
 
+.detail-buttons{
+
+}
+
+.card-button{
+    background-color:white;
+    // margin-left: 110px;
+}
+
+
 .in-between-cards{
     margin-bottom: 50px;
+    margin-top:50px;
 }
 
 .avatar-image{

@@ -27,13 +27,13 @@ class LandingPage extends Component {
                             </div>
 
                             <div className="button-div col-xs-12 col-lg-4">
-                                <Link to="/view-all"><button className='btn landing-page-btn'>VIEW ALL</button></Link>
+                                <Link to="/view-all"><button className='btn landing-page-btn'>VIEW &nbsp;ALL</button></Link>
                             </div>
                             <div className="computer-view text-center button-div checkout-text col-xs-12 col-lg-4">
-                                Check out the music scene in Atlanta
+                                Check out Festivals in Atlanta
                             </div>
                             <div className="button-div col-xs-12 col-lg-4">
-                                <Link to="/top-rated"><button className='btn landing-page-btn'>TOP RATED</button></Link>
+                                <Link to="/top-rated"><button className='btn landing-page-btn'>TOP &nbsp; RATED</button></Link>
                             </div>
                         </div>
                     </div>

@@ -41,19 +41,19 @@ class FestivalCard extends Component {
                                 <div className="card-lineup col-xs-12 col-md-6 text-center">
                                     {this.props.card.headliners}
                                 </div>
+                                <div className='col-xs-2'>
+                                    <Link to={viewMoreDetailLinkTag}><button className="btn card-button">View More Detail</button></Link>
+                                </div>
+                                <div className="col-xs-2 col-xs-offset-1">
+                                    <a target="_blank" href={this.props.card.festival_url}><button className="btn card-button">Festival Website</button></a>
+                                </div>
                             </div>
                         {/*place in stars below both the image and the description to the left  */}
 
 
 
 
-                            <div className='card-comment-body col-xs-8'>
-                                {/* {this.props.card.comments} */}
-                            </div>
-                            <div className='card-rating col-xs-4'>
-                                <Link to={viewMoreDetailLinkTag}><button>View More Detail</button></Link>
-                                <a target="_blank" href={this.props.card.festival_url}><button>Festival Website</button></a>
-                            </div>
+
 
                         </div>
                     </div>

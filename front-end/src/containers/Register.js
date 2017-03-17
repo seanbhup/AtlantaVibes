@@ -90,7 +90,7 @@ class Register extends Component {
 
                 <FormGroup controlId="uploadAvatar">
                     <Col smOffset={2} sm={8}>
-                        <label>Upload a picture (optional)</label>
+                        <label className="register-label">Upload a picture (optional)</label>
                         <FormControl type="file" placeholder="Select an image"/>
                     </Col>
                 </FormGroup>

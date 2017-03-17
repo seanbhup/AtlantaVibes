@@ -241,9 +241,9 @@ body {
 }
 
 .card-wrapper {
-  
+  padding: 0px 0px 25px 0px;
   // background-color: $blue;
-  padding-bottom: 25px;
+  // padding-bottom: 25px;
   font-family: 'Days One', sans-serif;
   background-color:$blue;
   color:white;
@@ -256,8 +256,7 @@ body {
 
 .card-header {
   // border-bottom: 1px solid black;
-  width: 100%;
-  margin-top: 20px;
+  width: 100%;  
   // padding-bottom: 20px;
 
 }
@@ -265,11 +264,21 @@ body {
 .card-title{
     font-family: 'Monoton', cursive;
     font-size: 40px;
+    padding-top: 75px;
 
+}
+
+.card-date{
+  font-size: 19.687px;
+  padding-top: 30px;
 }
 
 
 // Styling for View all container
+.card-header{
+  
+  height: 400px;
+}
 
 
 

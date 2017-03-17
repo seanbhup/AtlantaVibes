@@ -239,7 +239,7 @@ body {
 
 /* line 243, ../../compass/sass/styles.scss */
 .card-wrapper {
-  padding-bottom: 25px;
+  padding: 0px 0px 25px 0px;
   font-family: 'Days One', sans-serif;
   background-color: #6699CC;
   color: white;
@@ -254,38 +254,49 @@ body {
 /* line 257, ../../compass/sass/styles.scss */
 .card-header {
   width: 100%;
-  margin-top: 20px;
 }
 
-/* line 265, ../../compass/sass/styles.scss */
+/* line 264, ../../compass/sass/styles.scss */
 .card-title {
   font-family: 'Monoton', cursive;
   font-size: 40px;
+  padding-top: 75px;
 }
 
-/* line 276, ../../compass/sass/styles.scss */
+/* line 271, ../../compass/sass/styles.scss */
+.card-date {
+  font-size: 19.687px;
+  padding-top: 30px;
+}
+
+/* line 278, ../../compass/sass/styles.scss */
+.card-header {
+  height: 400px;
+}
+
+/* line 285, ../../compass/sass/styles.scss */
 .card-image-container {
   padding-top: 20px;
 }
 
-/* line 279, ../../compass/sass/styles.scss */
+/* line 288, ../../compass/sass/styles.scss */
 .card-image {
   max-width: 100%;
   height: auto;
 }
 
-/* line 291, ../../compass/sass/styles.scss */
+/* line 300, ../../compass/sass/styles.scss */
 .card-button {
   background-color: white;
 }
 
-/* line 297, ../../compass/sass/styles.scss */
+/* line 306, ../../compass/sass/styles.scss */
 .in-between-cards {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-/* line 302, ../../compass/sass/styles.scss */
+/* line 311, ../../compass/sass/styles.scss */
 .avatar-image {
   height: 60px;
   width: 60px;

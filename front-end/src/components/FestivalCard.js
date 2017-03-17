@@ -25,8 +25,15 @@ class FestivalCard extends Component {
         var festivalDatesFormatted = formattedStartDate + ' - '+ formattedEndDate;
         console.log(festivalDatesFormatted);
 
+        var backgroundImagePath = '../landing-background-gradient.png';
 
-        
+        const backgroundImageObject = {            
+            backgroundImage: 'url(' + backgroundImagePath + ')',
+        };
+
+        // <div className="card-image-container col-xs-12 text-center">
+        //         <img className='card-image' src={imageUrl} alt='Festival'/>
+        // </div>
         
 
 
@@ -35,7 +42,8 @@ class FestivalCard extends Component {
                 <div className="container">
                     <div className="row in-between-cards">
                         <div className="card-wrapper col-xs-10 col-xs-offset-1">
-                            <div className="card-header">
+                            <div className="card-header" style={backgroundImageObject}>
+
                                 <div className="card-title text-center">
                                     {this.props.card.name}
                                 </div>
@@ -46,9 +54,7 @@ class FestivalCard extends Component {
 
                             <div className="card-body col-xs-12">
                                 {/*within body, place the festival image on teh left and description on the right */}
-                                <div className="card-image-container col-xs-12 text-center">
-                                    <img className='card-image' src={imageUrl} alt='Festival'/>
-                                </div>
+                                
 
                                 <div className='card-rating col-xs-12 text-center'>
                                     {this.props.card.rating}

@@ -24,12 +24,17 @@ class FestivalCard extends Component {
 
         var festivalDatesFormatted = formattedStartDate + ' - '+ formattedEndDate;
         console.log(festivalDatesFormatted);
-
-        var backgroundImagePath = '../landing-background-gradient.png';
+    
+        // grab background image from the back-end        
+        var backgroundImagePath = `http://localhost:3000/images/${this.props.card.card_image}`;
 
         const backgroundImageObject = {            
-            backgroundImage: 'url(' + backgroundImagePath + ')',
+            
+            backgroundImage: 'url('+ backgroundImagePath + ')',
+            backgroundSize: 'cover',
+            overflow: 'hidden'            
         };
+
 
         // <div className="card-image-container col-xs-12 text-center">
         //         <img className='card-image' src={imageUrl} alt='Festival'/>

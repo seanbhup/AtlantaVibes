@@ -241,12 +241,17 @@ body {
 }
 
 .card-wrapper {
-  height: 500px;
+  
   // background-color: $blue;
+  padding-bottom: 25px;
   font-family: 'Days One', sans-serif;
-  background-color:$topazRed;
+  background-color:$blue;
   color:white;
+  box-shadow: 4.2px 4.2px 3px rgba(0,0,0,0.2);
+}
 
+.festival-wrapper{
+  background-color: #EEF4F7;
 }
 
 .card-header {
@@ -274,6 +279,7 @@ body {
 .card-image{
   max-width: 100%;
   height: auto;
+
   // max-height: 100%;
 
 }

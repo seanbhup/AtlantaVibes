@@ -239,47 +239,53 @@ body {
 
 /* line 243, ../../compass/sass/styles.scss */
 .card-wrapper {
-  height: 500px;
+  padding-bottom: 25px;
   font-family: 'Days One', sans-serif;
-  background-color: #A23E48;
+  background-color: #6699CC;
   color: white;
+  box-shadow: 4.2px 4.2px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 252, ../../compass/sass/styles.scss */
+/* line 253, ../../compass/sass/styles.scss */
+.festival-wrapper {
+  background-color: #EEF4F7;
+}
+
+/* line 257, ../../compass/sass/styles.scss */
 .card-header {
   width: 100%;
   margin-top: 20px;
 }
 
-/* line 260, ../../compass/sass/styles.scss */
+/* line 265, ../../compass/sass/styles.scss */
 .card-title {
   font-family: 'Monoton', cursive;
   font-size: 40px;
 }
 
-/* line 271, ../../compass/sass/styles.scss */
+/* line 276, ../../compass/sass/styles.scss */
 .card-image-container {
   padding-top: 20px;
 }
 
-/* line 274, ../../compass/sass/styles.scss */
+/* line 279, ../../compass/sass/styles.scss */
 .card-image {
   max-width: 100%;
   height: auto;
 }
 
-/* line 285, ../../compass/sass/styles.scss */
+/* line 291, ../../compass/sass/styles.scss */
 .card-button {
   background-color: white;
 }
 
-/* line 291, ../../compass/sass/styles.scss */
+/* line 297, ../../compass/sass/styles.scss */
 .in-between-cards {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-/* line 296, ../../compass/sass/styles.scss */
+/* line 302, ../../compass/sass/styles.scss */
 .avatar-image {
   height: 60px;
   width: 60px;

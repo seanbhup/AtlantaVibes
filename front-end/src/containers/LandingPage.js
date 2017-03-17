@@ -16,7 +16,7 @@ class LandingPage extends Component {
                     <div className="greeting-register-wrapper">
                         <div className='text-center intro-text'>
                             WELCOME TO ATLANTAVIBES,
-                                <br></br>THE BEST RESOURCE FOR ALL YOU MUSIC FESTIVAL NEEDS
+                                <br></br>THE BEST RESOURCE FOR ALL YOUR MUSIC FESTIVAL NEEDS
                         </div>
                     </div>
 

@@ -76,6 +76,7 @@ body {
 }
 
 .navbar {
+    box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
     border-radius: 0px;
     background-color: #FFF275;
     border: none;
@@ -255,8 +256,9 @@ body {
 }
 
 .card-header {
+    // box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
   // border-bottom: 1px solid black;
-  width: 100%;  
+  width: 100%;
   // padding-bottom: 20px;
 
 }
@@ -276,7 +278,7 @@ body {
 
 // Styling for View all container
 .card-header{
-  
+
   height: 400px;
 }
 

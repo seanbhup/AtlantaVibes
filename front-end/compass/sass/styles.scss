@@ -63,9 +63,26 @@ $sunny: #FFF275;
 }
 
 @media only screen and (max-width: 450px){
-    .card-rating{
+  .card-rating{
         left: 38.5% !important;
     }
+}
+
+@media only screen and (max-width: 500px){
+    
+
+    .comment-text{
+      font-size: 11px !important;  
+    }
+
+    .comment-username{
+      font-size: 13px !important;
+    }
+
+    .comment-date{
+      font-size: 8px !important;
+    }
+
 
 }
 
@@ -380,4 +397,37 @@ body {
 .avatar-image{
   height: 60px;
   width: 60px;
+}
+
+.comment{
+  word-wrap: break-word;  
+  max-width: 200px; 
+}
+.comment-text{
+  color: black;  
+}
+
+.comment-username{
+  text-decoration: underline; 
+  color: $topazRed;
+}
+
+.comment-table{
+  background-color: white;
+}
+
+.comment-date{
+  color: black;
+  text-align: right; 
+}
+
+.post-button{
+  background-color: $topazRed;
+  color: white;
+  border: none;
+  margin-top: 5px;
+}
+
+.avatar-image-td{
+  width: 30px;
 }

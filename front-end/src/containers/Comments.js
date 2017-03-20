@@ -60,29 +60,29 @@ class Comments extends Component {
             }
 
 
-            return commentsArray.push(
+            return commentsArray.push(                
                 <tr key={index}>
-                    <td>
+                    <td className='avatar-image-td'>
                         <img className='avatar-image' alt="Avatar" src={avatarImagePath} />
                     </td>
                     <td className="comment">
-                      <p>{comment.username}</p>
-                      <p>{comment.comment}</p>
+                      <p className='comment-username'>{comment.username}</p>
+                      <p className="comment-text">{comment.comment}</p>
                     </td>
                     <td>
-                        <p>{niceLookingDate}</p>
-                        <p>{niceLookingTime}</p>
+                        <p className="comment-date">{niceLookingDate}</p>
+                        <p className="comment-date">{niceLookingTime}</p>
                     </td>
 
                 </tr>
             )
         })
-        return (
-            <table className="table table-striped">
-                <tbody>
-                    {commentsArray}
-                </tbody>
-            </table>
+        return (            
+                <table className="table table-striped comment-table">
+                    <tbody>
+                        {commentsArray}
+                    </tbody>
+                </table> 
         )
 
     }

@@ -54,7 +54,7 @@ class PostComment extends Component {
                 <form onSubmit={this.submitPost}>
                     <FormGroup controlId="formControlsTextarea">
                         <FormControl componentClass="textarea" placeholder="Post A Comment" />
-                        <Button bsStyle='success' type='submit' block>Post</Button>
+                        <Button className='post-button' type='submit' block>Post</Button>
                     </FormGroup>
 
                 </form>

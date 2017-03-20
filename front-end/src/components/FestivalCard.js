@@ -73,13 +73,15 @@ class FestivalCard extends Component {
                                 {/*within body, place the festival image on teh left and description on the right */}
 
 
-                                <div className='card-rating col-xs-6 col-xs-offset-6'>
+                                <div className='card-rating text-center'>
                                   {this.props.card.rating}
                                 </div>
 
                                 <div className="card-description col-xs-12 col-md-6 text-center">
                                     {this.props.card.description}
                                 </div>
+
+
 
                                 <div className="col-md-6 text-center card-button-wrapper">
                                   <div className='col-xs-12'>

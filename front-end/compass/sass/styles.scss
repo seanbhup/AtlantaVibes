@@ -36,6 +36,17 @@ $sunny: #FFF275;
   .pipe{
       display: none !important;
     }
+  .card-title {
+    font-size: 30px !important;
+  }
+  .card-date {
+    font-size: 20px !important;
+
+  }
+  .card-lineup {
+    font-size: 15px !important;
+
+  }
 
 
   .intro-text{
@@ -271,8 +282,18 @@ body {
 }
 
 .card-date{
-  font-size: 19.687px;
+  font-size: 30px;
   padding-top: 30px;
+
+}
+
+.card-lineup {
+  padding-top: 40px;
+  font-size: 20px;
+  ul{
+    list-style-type: none;
+    padding: 0;
+  }
 }
 
 
@@ -295,6 +316,10 @@ body {
 
 }
 
+.card-rating {
+  padding: 0 !important;
+}
+
 .detail-buttons{
 
 }
@@ -302,6 +327,8 @@ body {
 .card-button{
     background-color:white;
     // margin-left: 110px;
+    width: 160px;
+    margin-top: 5px;
 }
 
 

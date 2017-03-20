@@ -8,7 +8,6 @@ import dateformat from 'dateformat';
 class FestivalCard extends Component {
 
     render() {
-        var imageUrl = `http://localhost:3000/images/${this.props.card.card_image}`;
         var viewMoreDetailLinkTag = '/view-more/' + this.props.card.name;
         // encode link tag to avoid special characters and spaces
         viewMoreDetailLinkTag = encodeURI((viewMoreDetailLinkTag));
@@ -16,35 +15,23 @@ class FestivalCard extends Component {
         var startDate = this.props.card.start_date;
         var endDate = this.props.card.end_date;
 
-        //we need a comment to tell us what the following lines will do
-        //please see below
-        // make that date look nice
+        // we need a comment to tell us what the following lines will do
+        // please see below make that date look nice
         var formattedStartDate = dateformat(startDate, 'mediumDate');
         var formattedEndDate = dateformat(endDate, 'mediumDate');
-
         var festivalDatesFormatted = formattedStartDate + ' - '+ formattedEndDate;
-        console.log(festivalDatesFormatted);
 
         // grab background image from the back-end
         var backgroundImagePath = `http://localhost:3000/images/${this.props.card.card_image}`;
 
         const backgroundImageObject = {
-
             backgroundImage: 'url('+ backgroundImagePath + ')',
             backgroundSize: 'cover',
             overflow: 'hidden'
         };
-        console.log(typeof this.props.card.headliners)
+
         var headliners = []
         headliners = this.props.card.headliners.split(", ")
-        console.log(headliners)
-
-
-        // <div className="card-image-container col-xs-12 text-center">
-        //         <img className='card-image' src={imageUrl} alt='Festival'/>
-        // </div>
-
-
 
         return (
             <div className="festival-wrapper">
@@ -70,8 +57,8 @@ class FestivalCard extends Component {
                             </div>
 
                             <div className="card-body col-xs-12">
-                                {/*within body, place the festival image on teh left and description on the right */}
-
+                                {/*within body, place the festival image on the
+                                left and description on the right */}
 
                                 <div className='card-rating text-center'>
                                   {this.props.card.rating}
@@ -80,8 +67,6 @@ class FestivalCard extends Component {
                                 <div className="card-description col-xs-12 col-md-6 text-center">
                                     {this.props.card.description}
                                 </div>
-
-
 
                                 <div className="col-md-6 text-center card-button-wrapper">
                                   <div className='col-xs-12'>
@@ -92,15 +77,8 @@ class FestivalCard extends Component {
                                   </div>
 
                                 </div>
-
                             </div>
                         {/*place in stars below both the image and the description to the left  */}
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>

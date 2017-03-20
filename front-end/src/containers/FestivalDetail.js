@@ -5,11 +5,16 @@ import dateformat from 'dateformat';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import FestivalDetailAction from "../actions/FestivalDetailAction.js";
+import RatingsModalAction from "../actions/RatingsModalAction.js";
 import Comments from '../containers/Comments.js';
 import PostComment from '../containers/PostComment.js';
 
 
 class FestivalDetail extends Component {
+    constructor(props) {
+        super(props);
+        this.handleRating = this.handleRating.bind(this);
+    }
 
     // make an ajax call to grab the all festivals in order after ViewAll component is loaded
     componentDidMount(){
@@ -20,7 +25,14 @@ class FestivalDetail extends Component {
         });
     }
 
-    render() {        
+    handleRating() {
+        this.props.getRatingsModal({
+            showModal: true,
+            festivalDetail: this.props.festivalDetail.festival
+        })
+    }
+
+    render() {
 
         if (this.props.festivalDetail === null) {
             return(
@@ -37,7 +49,7 @@ class FestivalDetail extends Component {
             var festivalDatesFormatted = formattedStartDate + ' - '+ formattedEndDate;
             console.log(festivalDatesFormatted);
 
-            // grab headliners and split them up into a nice clean array 
+            // grab headliners and split them up into a nice clean array
 
             var headliners = []
             headliners = this.props.festivalDetail.festival.headliners.split(", ")
@@ -70,21 +82,23 @@ class FestivalDetail extends Component {
                                             <li>{headliners[1]}</li>
                                             <li>{headliners[2]}</li>
                                         </ul>
-                                    </div>                                
+                                    </div>
                                 </div>
 
-                                
+
 
                                 <div className="card-body col-xs-12">
-                                    {/*within body, place the festival image on teh left and description on the right */}                                    
-
-                                    <div className='card-rating col-xs-12 text-center'>
+                                    {/*within body, place the festival image on teh left and description on the right */}
+                                    {/*Rating is in a button div. When clicked modal will fire to rate.*/}
+                                    <button
+                                        className='card-rating col-xs-12 text-center'
+                                        onClick={this.handleRating}>
                                         {this.props.festivalDetail.festival.rating}
-                                    </div>
+                                    </button>
 
                                     <div className="card-description col-xs-12 col-md-6 text-center">
                                         {this.props.festivalDetail.festival.description}
-                                    </div>                                    
+                                    </div>
                                 </div>
                             {/*place in stars below both the image and the description to the left  */}
 
@@ -114,7 +128,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        getFestivalDetail: FestivalDetailAction
+        getFestivalDetail: FestivalDetailAction,
+        getRatingsModal: RatingsModalAction
     }, dispatch)
 }
 

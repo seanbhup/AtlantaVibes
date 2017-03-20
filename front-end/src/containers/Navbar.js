@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Navbar} from "react-bootstrap";
 import LoginModal from "./LoginModal.js";
 import Authorization from "./Authorization.js";
 import RegisterModal from "./RegisterModal.js"
-import loginModalAction from '../actions/LoginModalAction.js'
-import registerModalAction from "../actions/RegisterModalAction.js"
+import RatingsModal from "./RatingsModal.js"
 
 class Navbar1 extends Component {
 
@@ -31,6 +28,8 @@ class Navbar1 extends Component {
 
                 <RegisterModal />
 
+                <RatingsModal />
+
 
             </div>
         );
@@ -38,13 +37,4 @@ class Navbar1 extends Component {
 
 }
 
-// map get modal to props so that our loginModalAction can listen for a click to the login button
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        getLoginModal: loginModalAction,
-        getRegisterModal: registerModalAction
-
-    }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(Navbar1);
+export default Navbar1;

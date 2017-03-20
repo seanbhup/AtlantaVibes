@@ -29,8 +29,8 @@ class Register extends Component {
         if (registerMessage === "userExists") {
             alert(registerMessage);
         }
-
     }
+
     handleRegistrationSubmit(event) {
         event.preventDefault();
         var username = event.target[0].value;

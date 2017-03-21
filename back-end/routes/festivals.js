@@ -13,6 +13,12 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+router.post("/rateFestival", (req,res,next) =>{
+    console.log(req.body);
+    var insertQuery = `INSERT INTO ratings (user_id, rating, festival_id) VALUES (?,?,?)`;
+})
+
+
 router.post('/postComment', (req, res, next) => {
     var timestamp = req.body.timestamp;
     var festival_id = req.body.festivalId;
@@ -33,14 +39,14 @@ router.post('/postComment', (req, res, next) => {
         var insertCommentQuery = `INSERT INTO comments (user_id, comment, festival_id, timestamp) VALUES (?, ?, ?, ?)`;
         connection.query(insertCommentQuery, [user_id, comment, festival_id, timestamp], (error2, results2, fields2) => {
             if (error2) throw error2;
-            
-            // need to convert the timestamp to a number before sending it back to the front-end so that we can convert it to a date object 
+
+            // need to convert the timestamp to a number before sending it back to the front-end so that we can convert it to a date object
             timestamp = Number(timestamp);
             res.json({
                 comment: comment,
                 username: username,
-                timestamp: timestamp, 
-                avatar_the_last_airbender: avatar_the_last_airbender               
+                timestamp: timestamp,
+                avatar_the_last_airbender: avatar_the_last_airbender
             });
         });
     });

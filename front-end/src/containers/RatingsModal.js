@@ -19,13 +19,14 @@ class RatingsModal extends Component {
     }
 
     render() {
+        console.log(this.props)
         return(
             <Modal show={this.props.ratingsModal.showModal} onHide={this.handleModalClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className="text-center">Rate {this.props.ratingsModal.festivalDetail.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Ratings  />
+                    <Ratings festivalId={this.props.ratingsModal.festivalDetail.id}/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.handleModalClose}>Close</Button>

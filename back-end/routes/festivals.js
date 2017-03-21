@@ -13,9 +13,51 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-router.post("/rateFestival", (req,res,next) =>{
+router.post("/rateFestival", (req, res, next) => {
+    var findUserQuery = "select * from user_info where username = ?";
+    var username = req.body.username
+    var festivalId = req.body.festivalId
+    var rating = req.body.rating
+
     console.log(req.body);
     var insertQuery = `INSERT INTO ratings (user_id, rating, festival_id) VALUES (?,?,?)`;
+    connection.query(findUserQuery, [username], (error, results, fields) => {
+        if (error) throw error;
+        // console.log(results)
+        var userId = results[0].id
+        connection.query(insertQuery, [userId, rating, festivalId], (error2, results2, fields2) => {
+            if (error2) throw error2;
+            // console.log(results2);
+
+        })
+    })
+    // update ratings
+
+    var selectRatingsQuery = 'SELECT rating FROM ratings WHERE festival_id = ?'
+    connection.query(selectRatingsQuery, [festivalId], (error3, results3, fields3) => {
+        if (error3) throw error3;
+        var sum = 0
+        var counter = 0
+        var ratingAvg = 0
+        results3.map((ratingPackage, index) => {
+            sum += ratingPackage.rating
+            counter++;
+
+
+        })
+        console.log(sum);
+        ratingAvg = sum / counter
+        var roundedAvg = Math.max(Math.round(ratingAvg * 10) / 10).toFixed(1);
+        console.log(ratingAvg);
+        console.log(roundedAvg);
+        var updateQuery = 'UPDATE festivals SET rating = ? WHERE id = ?';
+        connection.query(updateQuery, [roundedAvg, festivalId], (error4, results4, fields4) => {
+          console.log(results4);
+        })
+    })
+
+
+
 })
 
 

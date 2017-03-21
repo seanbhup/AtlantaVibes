@@ -36,9 +36,9 @@ router.post("/rateFestival", (req, res, next) => {
     var selectRatingsQuery = 'SELECT rating FROM ratings WHERE festival_id = ?'
     connection.query(selectRatingsQuery, [festivalId], (error3, results3, fields3) => {
         if (error3) throw error3;
-        var sum = 0
-        var counter = 0
-        var ratingAvg = 0
+        var sum = 0;
+        var counter = 0;
+        var ratingAvg = 0;
         results3.map((ratingPackage, index) => {
             sum += ratingPackage.rating
             counter++;

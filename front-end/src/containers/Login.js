@@ -36,6 +36,8 @@ class Login extends Component {
         var loginMessage = this.props.login.msg;
         if (loginMessage === 'loginSuccess') {
             this.props.getModal(false);
+        } else {
+            alert('Your username or password is wrong.')
         }
     }
 

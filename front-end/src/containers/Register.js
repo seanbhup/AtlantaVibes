@@ -26,8 +26,10 @@ class Register extends Component {
         console.log('*************************************')
         console.log(registerMessage)
         console.log('*************************************')
-        if (registerMessage === "userExists") {
-            alert(registerMessage);
+        if (registerMessage === "userInserted") {
+            this.props.getModal({showModal: false});
+        } else {
+            alert('This user already exists.');
         }
     }
 
@@ -38,6 +40,10 @@ class Register extends Component {
         var password = event.target[2].value;
         var repeatPassword = event.target[3].value;
         var avatarImage = event.target.elements.uploadAvatar.files[0];
+        console.log(avatarImage);
+        if (avatarImage === undefined) {
+            avatarImage = `http://localhost:3000/images/avatars/default-user-image.jpg`;
+        }
 
         if (password !== repeatPassword) {
             alert('Passwords do not match');
@@ -48,16 +54,7 @@ class Register extends Component {
                 password: password,
                 avatarImage: avatarImage
             });
-
-            /* close modal upon successful register*/
-            this.props.getModal({
-                showModal: false
-            })
         }
-
-
-
-
     }
 
     render() {

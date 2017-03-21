@@ -73,39 +73,47 @@ router.post('/register', type, (req, res, body) => {
     var username = req.body.username;
     var email = req.body.email;
     var password = bcrypt.hashSync(req.body.password);
-    var tempPath = req.file.path;
-    var avatarImageName = req.file.originalname;
-    var targetPath = `public/images/avatars/${avatarImageName}`;
-    // check availability of username before allowing user to sign up
-
-    var selectQuery = 'SELECT * FROM user_info WHERE username = ?'
-    connection.query(selectQuery, [username], (error, results, fields) =>{
-        // if nothing comes back, that means no user exists with this name
-        if (results.length === 0){
-            // enter user into database
-            var insertUserQuery = `INSERT INTO user_info (username, password, email_address, avatar_the_last_airbender) VALUES (?, ?, ?, ?)`;
-            fs.readFile(tempPath, (readError, readContents) => {
-                if (readError) throw readError;
-                fs.writeFile(targetPath, readContents, (writeError) => {
-                    if (writeError) throw writeError;
-                    connection.query(insertUserQuery, [username, password, email, avatarImageName], (error2, results2, fields2) => {
-                        if (error2) throw error2;
-                        fs.unlink(tempPath, (unlinkError) => {
-                            if (unlinkError) throw unlinkError;
-                            res.json({
-                                msg: 'userInserted'
+    var avatarImageName;
+    var selectQuery = 'SELECT * FROM user_info WHERE username = ?';
+    var insertUserQuery = `INSERT INTO user_info (username, password, email_address, avatar_the_last_airbender) VALUES (?, ?, ?, ?)`;
+    connection.query(selectQuery, [username], (error, results, fields) => {
+        if (error) throw error;
+        // check availability of username before allowing user to sign up
+        if (results.length > 0) {
+            res.json({
+                msg: 'userExists'
+            });
+        } else {
+            if (req.file !== undefined) {
+                var tempPath = req.file.path;
+                avatarImageName = req.file.originalname;
+                var targetPath = `public/images/avatars/${avatarImageName}`;
+                fs.readFile(tempPath, (readError, readContents) => {
+                    if (readError) throw readError;
+                    fs.writeFile(targetPath, readContents, (writeError) => {
+                        if (writeError) throw writeError;
+                        connection.query(insertUserQuery, [username, password, email, avatarImageName], (error2, results2, fields2) => {
+                            if (error2) throw error2;
+                            fs.unlink(tempPath, (unlinkError) => {
+                                if (unlinkError) throw unlinkError;
+                                res.json({
+                                    msg: 'userInserted'
+                                });
                             });
                         });
                     });
                 });
-            });
-        }else{
-            res.json({
-                msg: 'userExists'
-            })
-        }
-    })
-
+            } else {
+                avatarImageName = 'default-user-image.jpg';
+                connection.query(insertUserQuery, [username, password, email, avatarImageName], (error2, results2, fields2) => {
+                    if (error2) throw error2;
+                    res.json({
+                        msg: 'userInserted'
+                    });
+                });
+            }
+        } // else close
+    }); // select connection query close
 });
 
 

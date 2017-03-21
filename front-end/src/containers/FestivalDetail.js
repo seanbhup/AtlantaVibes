@@ -47,19 +47,16 @@ class FestivalDetail extends Component {
             var formattedStartDate = dateformat(startDate, 'mediumDate');
             var formattedEndDate = dateformat(endDate, 'mediumDate');
             var festivalDatesFormatted = formattedStartDate + ' - '+ formattedEndDate;
-            console.log(festivalDatesFormatted);
 
             // grab headliners and split them up into a nice clean array
 
             var headliners = []
             headliners = this.props.festivalDetail.festival.headliners.split(", ")
-            console.log(headliners);
 
             const backgroundImageObject = {
-
-            backgroundImage: 'url('+ backgroundImagePath + ')',
-            backgroundSize: 'cover',
-            overflow: 'hidden'
+                backgroundImage: 'url('+ backgroundImagePath + ')',
+                backgroundSize: 'cover',
+                overflow: 'hidden'
             };
 
             return(

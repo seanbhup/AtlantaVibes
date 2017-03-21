@@ -438,3 +438,20 @@ body {
 .avatar-image-td {
   width: 30px;
 }
+
+/* line 435, ../../compass/sass/styles.scss */
+.glyphicon-star-empty {
+  color: #A23E48;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  font-weight: none;
+}
+
+/* line 443, ../../compass/sass/styles.scss */
+.glyphicon-star {
+  color: #FF8C42;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+}

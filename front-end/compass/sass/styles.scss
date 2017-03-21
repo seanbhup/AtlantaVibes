@@ -69,10 +69,10 @@ $sunny: #FFF275;
 }
 
 @media only screen and (max-width: 500px){
-    
+
 
     .comment-text{
-      font-size: 11px !important;  
+      font-size: 11px !important;
     }
 
     .comment-username{
@@ -400,15 +400,15 @@ body {
 }
 
 .comment{
-  word-wrap: break-word;  
-  max-width: 200px; 
+  word-wrap: break-word;
+  max-width: 200px;
 }
 .comment-text{
-  color: black;  
+  color: black;
 }
 
 .comment-username{
-  text-decoration: underline; 
+  text-decoration: underline;
   color: $topazRed;
 }
 
@@ -418,7 +418,7 @@ body {
 
 .comment-date{
   color: black;
-  text-align: right; 
+  text-align: right;
 }
 
 .post-button{
@@ -430,4 +430,20 @@ body {
 
 .avatar-image-td{
   width: 30px;
+}
+
+.glyphicon-star-empty{
+    color: $topazRed;
+    height:40px;
+    width:40px;
+    font-size: 40px;
+    font-weight: none;
+}
+
+.glyphicon-star{
+    color: $mango;
+    height:40px;
+    width:40px;
+    font-size: 40px;
+
 }

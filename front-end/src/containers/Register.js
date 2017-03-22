@@ -7,7 +7,8 @@ import {
     FormGroup,
     FormControl,
     Button,
-    Col
+    Col,
+    ControlLabel
 } from 'react-bootstrap';
 
 import registerAction from '../actions/RegisterAction.js';
@@ -19,6 +20,10 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
+        this.state = {
+          validation: null,
+          loginLabel: "login-error-label-hide"
+        }
     }
 
     componentDidUpdate() {
@@ -29,7 +34,10 @@ class Register extends Component {
         if (registerMessage === "userInserted") {
             this.props.getModal({showModal: false});
         } else {
-            alert('This user already exists.');
+            this.setState({
+              validation: "error",
+              loginLabel: "login-error-label-show"
+            });
         }
     }
 
@@ -46,7 +54,10 @@ class Register extends Component {
         }
 
         if (password !== repeatPassword) {
-            alert('Passwords do not match');
+          this.setState({
+            validation: "error",
+            loginLabel: "login-error-label-show"
+          });
         } else {
             this.props.registerAction({
                 username: username,
@@ -60,26 +71,27 @@ class Register extends Component {
     render() {
         return (
             <Form horizontal onSubmit={this.handleRegistrationSubmit}>
-                <FormGroup controlId="formHorizontalName">
+                <FormGroup controlId="formHorizontalName" validationState={this.state.validation}>
                     <Col smOffset={2} sm={8}>
+                      <ControlLabel className={this.state.loginLabel}>Invalid Register Info</ControlLabel>
                         <FormControl type="text" placeholder="Full Name"/>
                     </Col>
                 </FormGroup>
 
-                <FormGroup controlId="formHorizontalEmail">
+                <FormGroup controlId="formHorizontalEmail" validationState={this.state.validation}>
 
                     <Col smOffset={2} sm={8}>
                         <FormControl type="email" placeholder="Email"/>
                     </Col>
                 </FormGroup>
-                <FormGroup controlId="formHorizontalPassword">
+                <FormGroup controlId="formHorizontalPassword" validationState={this.state.validation}>
 
                     <Col smOffset={2} sm={8}>
                         <FormControl type="password" placeholder="Password"/>
                     </Col>
                 </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
+                <FormGroup controlId="formHorizontalPassword" validationState={this.state.validation}>
                     <Col smOffset={2} sm={8}>
                         <FormControl type="password" placeholder="Repeat password"/>
                     </Col>

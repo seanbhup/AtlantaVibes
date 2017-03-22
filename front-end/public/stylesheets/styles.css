@@ -370,9 +370,10 @@ body {
   font-size: 30px;
   color: #A23E48;
   border: 2px solid #6699CC;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* line 378, ../../compass/sass/styles.scss */
+/* line 379, ../../compass/sass/styles.scss */
 .card-button {
   background-color: white;
   width: 250px;
@@ -380,58 +381,68 @@ body {
   margin-top: 30px;
   font-size: 18.342px;
 }
-/* line 384, ../../compass/sass/styles.scss */
+/* line 385, ../../compass/sass/styles.scss */
 .card-button:hover {
   color: #A23E48;
 }
 
-/* line 389, ../../compass/sass/styles.scss */
+/* line 390, ../../compass/sass/styles.scss */
 .card-description {
   margin-top: 40px;
   margin-bottom: 10px;
 }
 
 /* line 395, ../../compass/sass/styles.scss */
+.click-me {
+  z-index: 1;
+  position: relative;
+  color: black;
+  margin-top: 9px;
+  margin-bottom: -22.5px;
+  font-size: 10px;
+}
+
+/* line 406, ../../compass/sass/styles.scss */
 .in-between-cards {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-/* line 400, ../../compass/sass/styles.scss */
+/* line 411, ../../compass/sass/styles.scss */
 .avatar-image {
   height: 60px;
   width: 60px;
 }
 
-/* line 405, ../../compass/sass/styles.scss */
+/* line 416, ../../compass/sass/styles.scss */
 .comment {
   word-wrap: break-word;
   max-width: 200px;
 }
 
-/* line 409, ../../compass/sass/styles.scss */
+/* line 420, ../../compass/sass/styles.scss */
 .comment-text {
   color: black;
 }
 
-/* line 413, ../../compass/sass/styles.scss */
+/* line 424, ../../compass/sass/styles.scss */
 .comment-username {
   text-decoration: underline;
   color: #A23E48;
 }
 
-/* line 418, ../../compass/sass/styles.scss */
+/* line 429, ../../compass/sass/styles.scss */
 .comment-table {
   background-color: white;
 }
 
-/* line 422, ../../compass/sass/styles.scss */
+/* line 433, ../../compass/sass/styles.scss */
 .comment-date {
   color: black;
   text-align: right;
 }
 
-/* line 427, ../../compass/sass/styles.scss */
+/* line 438, ../../compass/sass/styles.scss */
 .post-button {
   background-color: #A23E48;
   color: white;
@@ -439,12 +450,12 @@ body {
   margin-top: 5px;
 }
 
-/* line 434, ../../compass/sass/styles.scss */
+/* line 445, ../../compass/sass/styles.scss */
 .avatar-image-td {
   width: 30px;
 }
 
-/* line 438, ../../compass/sass/styles.scss */
+/* line 449, ../../compass/sass/styles.scss */
 .glyphicon-star-empty {
   color: #A23E48;
   height: 40px;
@@ -453,10 +464,15 @@ body {
   font-weight: none;
 }
 
-/* line 446, ../../compass/sass/styles.scss */
+/* line 457, ../../compass/sass/styles.scss */
 .glyphicon-star {
   color: #FF8C42;
   height: 40px;
   width: 40px;
   font-size: 40px;
+}
+
+/* line 464, ../../compass/sass/styles.scss */
+.btn-info {
+  background-color: #6699CC;
 }

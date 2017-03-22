@@ -64,7 +64,7 @@ class Login extends Component {
                     </Col>
                 </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
+                <FormGroup controlId="formHorizontalPassword" validationState={this.state.validation}>
 
                     <Col smOffset={2} sm={8}>
                         <FormControl className="login-password-input"type="password" placeholder="Password"/>
@@ -73,7 +73,7 @@ class Login extends Component {
 
                 <FormGroup>
                     <Col smOffset={2} sm={8}>
-                        <Button className="login-button" bsStyle="success" bsSize="small" type="submit">
+                        <Button className="login-button"  bsStyle="warning" bsSize="small" type="submit">
                             Login
                         </Button>
                     </Col>

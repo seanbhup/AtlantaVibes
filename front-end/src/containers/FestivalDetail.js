@@ -14,7 +14,7 @@ import PostComment from '../containers/PostComment.js';
 class FestivalDetail extends Component {
     constructor(props) {
         super(props);
-        this.handleRating = this.handleRating.bind(this);        
+        this.handleRating = this.handleRating.bind(this);
     }
 
     // make an ajax call to grab the all festivals in order after ViewAll component is loaded
@@ -22,7 +22,7 @@ class FestivalDetail extends Component {
         // grab festival name
         var festivalName = this.props.params.festival;
 
-        // send festival name to the back end in order to map all of the relevant information for this festival to props 
+        // send festival name to the back end in order to map all of the relevant information for this festival to props
         this.props.getFestivalDetail({
             festivalName: festivalName
         });
@@ -30,18 +30,18 @@ class FestivalDetail extends Component {
 
     }
 
-    
+
     componentWillReceiveProps(nextProps) {
         // console.log('%%%%%%%%%%%%%%%%%%%%%')
         // console.log(this.props);
         // console.log(nextProps);
         // console.log('%%%%%%%%%%%%%%%%%%%%%')
         if (this.props.getRating !== nextProps.getRating){
-            // we have a new rating! 
+            // we have a new rating!
             console.log('hopefully this soooud fire')
             this.props.getFestivalDetail("updateRating",nextProps.getRating.festivalRating);
             // this.props.festivalDetail.festival.rating = nextProps.getRating.festivalRating;
-            
+
         }
 
         // this.setState({
@@ -50,10 +50,10 @@ class FestivalDetail extends Component {
         // this.forceUpdate();
 
     }
-    
+
 
     handleRating() {
-        // Send festival detail and open modal to the back end 
+        // Send festival detail and open modal to the back end
         this.props.getRatingsModal({
             showModal: true,
             festivalDetail: this.props.festivalDetail.festival
@@ -119,10 +119,13 @@ class FestivalDetail extends Component {
                                     <button
                                         className='card-rating col-xs-12 text-center'
                                         onClick={this.handleRating}>
-                                        {this.props.festivalDetail.festival.rating}                                    
+                                        {this.props.festivalDetail.festival.rating}
                                     </button>
+                                    <div className="click-me text-center">
+                                      Rate Me
+                                    </div>
 
-                                    <div className="card-description col-xs-12 col-md-6 text-center">
+                                    <div className="card-description col-xs-12  text-center">
                                         {this.props.festivalDetail.festival.description}
                                     </div>
                                 </div>

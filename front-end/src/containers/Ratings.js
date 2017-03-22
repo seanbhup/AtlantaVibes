@@ -44,7 +44,7 @@ class Ratings extends Component{
             <div className="text-center">
                 <Rating onClick={this.handleRating} start={0} stop={5} fractions={10} empty={"glyphicon glyphicon-star-empty"} full={"glyphicon glyphicon-star"}/>
                 <div className="submit-rating">
-                    <button onClick={this.handleRatingSubmit}>Submit Rating</button>
+                    <button className="btn btn-info"   onClick={this.handleRatingSubmit}>Rate your experience! </button>
                 </div>
             </div>
 

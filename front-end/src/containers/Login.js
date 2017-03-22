@@ -4,7 +4,8 @@ import {
     FormGroup,
     FormControl,
     Button,
-    Col
+    Col,
+    ControlLabel
 } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -15,6 +16,10 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+        this.state = {
+          validation: null,
+          loginLabel: "login-error-label-hide"
+        }
     }
 
     // gets the value from the login form inputs really well
@@ -37,7 +42,12 @@ class Login extends Component {
         if (loginMessage === 'loginSuccess') {
             this.props.getModal(false);
         } else {
-            alert('Your username or password is wrong.')
+            this.setState(
+              {
+                validation: "error",
+                loginLabel: "login-error-label-show"
+              }
+            )
         }
     }
 
@@ -46,9 +56,10 @@ class Login extends Component {
     render(){
         return(
             <Form horizontal onSubmit={this.handleLoginSubmit}>
-                <FormGroup controlId="formHorizontalName">
 
+                <FormGroup controlId="formHorizontalName" validationState={this.state.validation}>
                     <Col smOffset={2} sm={8}>
+                      <ControlLabel className={this.state.loginLabel}>Invalid Login Info</ControlLabel>
                         <FormControl className="login-username-input" type="text" placeholder="Username"/>
                     </Col>
                 </FormGroup>

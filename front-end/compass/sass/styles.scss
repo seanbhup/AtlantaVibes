@@ -267,6 +267,9 @@ body {
         color: $topazRed;
     }
 }
+.login-error-label-hide{
+  display: none;
+}
 
 .register-button {
     background-color: $topazRed;

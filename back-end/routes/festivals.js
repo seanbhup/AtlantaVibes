@@ -139,7 +139,7 @@ router.get('/viewAll', function(req, res, next) {
 
 // Get only the festivals that have a rating over 6 and pass them to the front-end
 router.get("/topRated", function(req, res, next) {
-    var selectTopRatedQuery = `SELECT * FROM festivals WHERE rating > 6 ORDER BY rating desc`;
+    var selectTopRatedQuery = `SELECT * FROM festivals WHERE rating > 4 ORDER BY rating desc`;
     connection.query(selectTopRatedQuery, (error, results, fields) => {
         // console.log(fields, "drew the eeper")
         if (error) throw error;

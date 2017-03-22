@@ -11,7 +11,6 @@ import PostComment from '../containers/PostComment.js';
 
 
 
-
 class FestivalDetail extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +39,9 @@ class FestivalDetail extends Component {
         if (this.props.getRating !== nextProps.getRating){
             // we have a new rating! 
             console.log('hopefully this soooud fire')
-            this.props.festivalDetail.festival.rating = nextProps.getRating.festivalRating;
+            this.props.getFestivalDetail("updateRating",nextProps.getRating.festivalRating);
+            // this.props.festivalDetail.festival.rating = nextProps.getRating.festivalRating;
+            
         }
 
         // this.setState({
@@ -118,7 +119,7 @@ class FestivalDetail extends Component {
                                     <button
                                         className='card-rating col-xs-12 text-center'
                                         onClick={this.handleRating}>
-                                        {this.props.festivalDetail.festival.rating}
+                                        {this.props.festivalDetail.festival.rating}                                    
                                     </button>
 
                                     <div className="card-description col-xs-12 col-md-6 text-center">

@@ -45,14 +45,19 @@ router.post("/rateFestival", (req, res, next) => {
 
 
         })
-        console.log(sum);
+        
         ratingAvg = sum / counter
         var roundedAvg = Math.max(Math.round(ratingAvg * 10) / 10).toFixed(1);
-        console.log(ratingAvg);
-        console.log(roundedAvg);
+        // console.log(ratingAvg);
+        // console.log(roundedAvg);
         var updateQuery = 'UPDATE festivals SET rating = ? WHERE id = ?';
         connection.query(updateQuery, [roundedAvg, festivalId], (error4, results4, fields4) => {
-          console.log(results4);
+            
+            res.json({
+                festivalRating: roundedAvg,
+                festivalId: festivalId
+            })
+            
         })
     })
 

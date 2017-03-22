@@ -7,12 +7,6 @@ import dateformat from 'dateformat';
 
 class FestivalCard extends Component {
 
-    componentWillReceiveProps(nextProps){
-        if(this.props.card.rating !== nextProps.card.rating){
-          console.log(nextProps.card.rating);
-        }
-    }
-
     render() {
         var viewMoreDetailLinkTag = '/view-more/' + this.props.card.name;
         // encode link tag to avoid special characters and spaces

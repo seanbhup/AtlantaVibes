@@ -11,7 +11,6 @@ class Comments extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props);
         this.setState({
             comments: this.props.comments
         });
@@ -23,7 +22,7 @@ class Comments extends Component {
                 comments: nextProps.comments
             });
         }
-        console.log(nextProps);
+        // console.log(nextProps);
         // create an array that will hold the set of old comments in addition to the new comment
         var commentsArrayWithNewComment = this.state.comments;
         // add the new comment to the array

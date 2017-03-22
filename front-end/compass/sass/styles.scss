@@ -256,6 +256,7 @@ body {
     font-family: 'Monoton', cursive;
 }
 
+
 .login-button {
     background-color: $topazRed;
     color: $sunny;
@@ -284,8 +285,16 @@ body {
 }
 
 
+.register-error-label-hide{
+    display:none;
+}
+
+
 .modal-dialog{
     margin:100px auto;
+}
+.modal-body{
+    height: 100%;
 }
 
 .background-image{
@@ -390,6 +399,8 @@ body {
 .card-description{
     margin-top: 40px;
     margin-bottom: 10px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
 }
 
 .click-me {
@@ -402,6 +413,14 @@ body {
 
 }
 
+.post-comment-label-hide{
+    display:none;
+
+}
+
+.post-comment-label-show{
+    color: red;
+}
 
 .in-between-cards{
     margin-bottom: 50px;

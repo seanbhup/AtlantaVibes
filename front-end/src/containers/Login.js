@@ -33,23 +33,38 @@ class Login extends Component {
         });
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps) {
+       if (this.props.login !== nextProps.login) {
+           console.log(nextProps.login.msg);
+           if (nextProps.login.msg === "badUsername" || nextProps.login.msg === "loginFailure") {
+            //    console.log("User Exists Already")
+               this.setState({
+                   validation: "error",
+                   loginLabel: "login-error-label-show"
 
-    }
+               })
+           } else if (nextProps.login.msg === "loginSuccess") {
+            //    console.log("User Inserted");
+               this.props.getModal({
+                   showModal: false
+               })
+           }
+       }
+   }
 
-    componentDidUpdate() {
-        var loginMessage = this.props.login.msg;
-        if (loginMessage === 'loginSuccess') {
-            this.props.getModal(false);
-        } else {
-            this.setState(
-              {
-                validation: "error",
-                loginLabel: "login-error-label-show"
-              }
-            )
-        }
-    }
+    // componentWillReceiveProps() {
+    //     var loginMessage = this.props.login.msg;
+    //     if (loginMessage === 'loginSuccess') {
+    //         this.props.getModal(false);
+    //     } else {
+    //         this.setState(
+    //           {
+    //             validation: "error",
+    //             loginLabel: "login-error-label-show"
+    //           }
+    //         )
+    //     }
+    // }
 
 
 

@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Button, FormGroup, FormControl} from 'react-bootstrap';
 
 import PostCommentAction from '../actions/PostCommentAction.js';
+import {ControlLabel} from "react-bootstrap";
 
 
 class PostComment extends Component {
@@ -11,23 +12,53 @@ class PostComment extends Component {
         super(props);
 
         this.submitPost = this.submitPost.bind(this);
+
+        this.state = {
+            validation: null,
+            postCommentLabel: "post-comment-label-hide",
+            postCommentError: null
+
+        }
     }
 
     submitPost(event){
         event.preventDefault();
         // stop the user from posting if they are not logged in
         if (this.props.loginInfo.isLoggedIn === false){
-            alert('We would love to hear what you have to say! Please log in before posting! :D');
+            this.setState({
+                validation: "error",
+                postCommentLabel: "post-comment-label-show",
+                postCommentError: "Please login to make a comment."
+            });
         }else{
+
+            // Theyre logged in
+            this.setState({
+                validation: null,
+                postCommentLabel: "post-comment-label-hide",
+                postCommentError: null
+            });
+
             var timestamp = Date.now();
 
             var username = this.props.loginInfo.name;
 
             var userPost = event.target.children[0].children[0].value;
+            console.dir(event.target)
             var festivalName = this.props.festivalName;
             var festivalId = this.props.festivalId;
             if(userPost === ""){
-                alert("You can't post nothing!");
+                this.setState({
+                    validation: "error",
+                    postCommentLabel: "post-comment-label-show",
+                    postCommentError: "You cannot post an empty comment."
+                });
+            }else{
+                this.setState({
+                    validation: null,
+                    postCommentLabel: "post-comment-label-hide",
+                    postCommentError: null
+                });
             }
             //grab time to send to backend with message
 
@@ -52,10 +83,13 @@ class PostComment extends Component {
             <div>
 
                 <form onSubmit={this.submitPost}>
-                    <FormGroup controlId="formControlsTextarea">
+                    <FormGroup controlId="formControlsTextarea" validationState={this.state.validation}>
+
                         <FormControl componentClass="textarea" placeholder="Post A Comment" />
+                        <ControlLabel className={this.state.postCommentLabel}>{this.state.postCommentError}</ControlLabel>
                         <Button className='post-button' type='submit' block>Post</Button>
                     </FormGroup>
+
 
                 </form>
             </div>

@@ -22,24 +22,28 @@ class Register extends Component {
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
         this.state = {
           validation: null,
-          loginLabel: "login-error-label-hide"
+          registerLabel: "register-error-label-hide"
+
         }
     }
 
-    componentDidUpdate() {
-        var registerMessage = this.props.register.msg;
-        console.log('*************************************')
-        console.log(registerMessage)
-        console.log('*************************************')
-        if (registerMessage === "userInserted") {
-            this.props.getModal({showModal: false});
-        } else {
-            this.setState({
-              validation: "error",
-              loginLabel: "login-error-label-show"
-            });
-        }
-    }
+    componentWillReceiveProps(nextProps) {
+       if (this.props.register !== nextProps.register) {
+           if (nextProps.register.msg === "userExists") {
+               console.log("User Exists Already")
+               this.setState({
+                   validation: "error",
+                   registerLabel: "register-error-label-show"
+
+               })
+           } else if (nextProps.register.msg === "userInserted") {
+               console.log("User Inserted");
+               this.props.getModal({
+                   showModal: false
+               })
+           }
+       }
+   }
 
     handleRegistrationSubmit(event) {
         event.preventDefault();
@@ -53,12 +57,18 @@ class Register extends Component {
             avatarImage = `http://localhost:3000/images/avatars/default-user-image.jpg`;
         }
 
-        if (password !== repeatPassword) {
+        if (password !== repeatPassword)  {
           this.setState({
             validation: "error",
-            loginLabel: "login-error-label-show"
+            registerLabel: "register-error-label-show"
           });
-        } else {
+
+      } else if (password.length === 0){
+          this.setState({
+              validation: "error",
+              registerLabel: "register-error-label-show"
+          });
+      } else {
             this.props.registerAction({
                 username: username,
                 email: email,
@@ -73,7 +83,7 @@ class Register extends Component {
             <Form horizontal onSubmit={this.handleRegistrationSubmit}>
                 <FormGroup controlId="formHorizontalName" validationState={this.state.validation}>
                     <Col smOffset={2} sm={8}>
-                      <ControlLabel className={this.state.loginLabel}>Invalid Register Info</ControlLabel>
+                      <ControlLabel className={this.state.registerLabel}>Invalid Register Info</ControlLabel>
                         <FormControl type="text" placeholder="Full Name"/>
                     </Col>
                 </FormGroup>

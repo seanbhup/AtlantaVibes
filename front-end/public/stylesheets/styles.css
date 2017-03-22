@@ -254,49 +254,59 @@ body {
   font-family: 'Monoton', cursive;
 }
 
-/* line 259, ../../compass/sass/styles.scss */
+/* line 260, ../../compass/sass/styles.scss */
 .login-button {
   background-color: #A23E48;
   color: #FFF275;
   font-size: 30px;
   border: none;
 }
-/* line 265, ../../compass/sass/styles.scss */
+/* line 266, ../../compass/sass/styles.scss */
 .login-button:hover {
   background-color: #FFF275;
   color: #A23E48;
 }
 
-/* line 270, ../../compass/sass/styles.scss */
+/* line 271, ../../compass/sass/styles.scss */
 .login-error-label-hide {
   display: none;
 }
 
-/* line 274, ../../compass/sass/styles.scss */
+/* line 275, ../../compass/sass/styles.scss */
 .register-button {
   background-color: #A23E48;
   color: #FFF275;
   font-size: 30px;
   border: none;
 }
-/* line 280, ../../compass/sass/styles.scss */
+/* line 281, ../../compass/sass/styles.scss */
 .register-button:hover {
   background-color: #FFF275;
   color: #A23E48;
 }
 
-/* line 287, ../../compass/sass/styles.scss */
+/* line 288, ../../compass/sass/styles.scss */
+.register-error-label-hide {
+  display: none;
+}
+
+/* line 293, ../../compass/sass/styles.scss */
 .modal-dialog {
   margin: 100px auto;
 }
 
-/* line 291, ../../compass/sass/styles.scss */
+/* line 296, ../../compass/sass/styles.scss */
+.modal-body {
+  height: 100%;
+}
+
+/* line 300, ../../compass/sass/styles.scss */
 .background-image {
   width: 100%;
   height: 100%;
 }
 
-/* line 296, ../../compass/sass/styles.scss */
+/* line 305, ../../compass/sass/styles.scss */
 .card-wrapper {
   padding: 0px 0px 25px 0px;
   font-family: 'Days One', sans-serif;
@@ -305,58 +315,58 @@ body {
   box-shadow: 4.2px 4.2px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 306, ../../compass/sass/styles.scss */
+/* line 315, ../../compass/sass/styles.scss */
 .festival-wrapper {
   background-color: #EEF4F7;
 }
 
-/* line 310, ../../compass/sass/styles.scss */
+/* line 319, ../../compass/sass/styles.scss */
 .card-header {
   width: 100%;
 }
 
-/* line 318, ../../compass/sass/styles.scss */
+/* line 327, ../../compass/sass/styles.scss */
 .card-title {
   font-family: 'Monoton', cursive;
   font-size: 40px;
   padding-top: 75px;
 }
 
-/* line 325, ../../compass/sass/styles.scss */
+/* line 334, ../../compass/sass/styles.scss */
 .card-date {
   font-size: 30px;
   padding-top: 30px;
 }
 
-/* line 331, ../../compass/sass/styles.scss */
+/* line 340, ../../compass/sass/styles.scss */
 .card-lineup {
   padding-top: 40px;
   font-size: 20px;
 }
-/* line 334, ../../compass/sass/styles.scss */
+/* line 343, ../../compass/sass/styles.scss */
 .card-lineup ul {
   list-style-type: none;
   padding: 0;
 }
 
-/* line 342, ../../compass/sass/styles.scss */
+/* line 351, ../../compass/sass/styles.scss */
 .card-header {
   position: relative;
   height: 400px;
 }
 
-/* line 349, ../../compass/sass/styles.scss */
+/* line 358, ../../compass/sass/styles.scss */
 .card-image-container {
   padding-top: 20px;
 }
 
-/* line 352, ../../compass/sass/styles.scss */
+/* line 361, ../../compass/sass/styles.scss */
 .card-image {
   max-width: 100%;
   height: auto;
 }
 
-/* line 363, ../../compass/sass/styles.scss */
+/* line 372, ../../compass/sass/styles.scss */
 .card-rating {
   padding: 0;
   position: absolute;
@@ -373,7 +383,7 @@ body {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* line 379, ../../compass/sass/styles.scss */
+/* line 388, ../../compass/sass/styles.scss */
 .card-button {
   background-color: white;
   width: 250px;
@@ -381,18 +391,20 @@ body {
   margin-top: 30px;
   font-size: 18.342px;
 }
-/* line 385, ../../compass/sass/styles.scss */
+/* line 394, ../../compass/sass/styles.scss */
 .card-button:hover {
   color: #A23E48;
 }
 
-/* line 390, ../../compass/sass/styles.scss */
+/* line 399, ../../compass/sass/styles.scss */
 .card-description {
   margin-top: 40px;
   margin-bottom: 10px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
 }
 
-/* line 395, ../../compass/sass/styles.scss */
+/* line 406, ../../compass/sass/styles.scss */
 .click-me {
   z-index: 1;
   position: relative;
@@ -402,47 +414,57 @@ body {
   font-size: 10px;
 }
 
-/* line 406, ../../compass/sass/styles.scss */
+/* line 416, ../../compass/sass/styles.scss */
+.post-comment-label-hide {
+  display: none;
+}
+
+/* line 421, ../../compass/sass/styles.scss */
+.post-comment-label-show {
+  color: red;
+}
+
+/* line 425, ../../compass/sass/styles.scss */
 .in-between-cards {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-/* line 411, ../../compass/sass/styles.scss */
+/* line 430, ../../compass/sass/styles.scss */
 .avatar-image {
   height: 60px;
   width: 60px;
 }
 
-/* line 416, ../../compass/sass/styles.scss */
+/* line 435, ../../compass/sass/styles.scss */
 .comment {
   word-wrap: break-word;
   max-width: 200px;
 }
 
-/* line 420, ../../compass/sass/styles.scss */
+/* line 439, ../../compass/sass/styles.scss */
 .comment-text {
   color: black;
 }
 
-/* line 424, ../../compass/sass/styles.scss */
+/* line 443, ../../compass/sass/styles.scss */
 .comment-username {
   text-decoration: underline;
   color: #A23E48;
 }
 
-/* line 429, ../../compass/sass/styles.scss */
+/* line 448, ../../compass/sass/styles.scss */
 .comment-table {
   background-color: white;
 }
 
-/* line 433, ../../compass/sass/styles.scss */
+/* line 452, ../../compass/sass/styles.scss */
 .comment-date {
   color: black;
   text-align: right;
 }
 
-/* line 438, ../../compass/sass/styles.scss */
+/* line 457, ../../compass/sass/styles.scss */
 .post-button {
   background-color: #A23E48;
   color: white;
@@ -450,12 +472,12 @@ body {
   margin-top: 5px;
 }
 
-/* line 445, ../../compass/sass/styles.scss */
+/* line 464, ../../compass/sass/styles.scss */
 .avatar-image-td {
   width: 30px;
 }
 
-/* line 449, ../../compass/sass/styles.scss */
+/* line 468, ../../compass/sass/styles.scss */
 .glyphicon-star-empty {
   color: #A23E48;
   height: 40px;
@@ -464,7 +486,7 @@ body {
   font-weight: none;
 }
 
-/* line 457, ../../compass/sass/styles.scss */
+/* line 476, ../../compass/sass/styles.scss */
 .glyphicon-star {
   color: #FF8C42;
   height: 40px;
@@ -472,7 +494,7 @@ body {
   font-size: 40px;
 }
 
-/* line 464, ../../compass/sass/styles.scss */
+/* line 483, ../../compass/sass/styles.scss */
 .btn-info {
   background-color: #6699CC;
 }

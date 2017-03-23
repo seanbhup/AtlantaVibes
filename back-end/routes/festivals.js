@@ -39,12 +39,22 @@ router.post("/rateFestival", (req, res, next) => {
         var sum = 0;
         var counter = 0;
         var ratingAvg = 0;
+
+        // go through each rating in the database and increase the counter and sum 
         results3.map((ratingPackage, index) => {
             sum += ratingPackage.rating
             counter++;
 
 
         })
+
+        // at this point we've added every rating related to this festival from the database
+        // let's also add the most recent rating         
+
+        // need to increase the rating and counter to adjust for the rating that just came in 
+        sum += Number(rating);
+        counter++;         
+        
         
         ratingAvg = sum / counter
         var roundedAvg = Math.max(Math.round(ratingAvg * 10) / 10).toFixed(1);

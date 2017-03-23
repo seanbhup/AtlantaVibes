@@ -32,7 +32,7 @@ class PostComment extends Component {
             });
         }else{
 
-            // Theyre logged in
+            // user is logged in
             this.setState({
                 validation: null,
                 postCommentLabel: "post-comment-label-hide",
@@ -59,19 +59,21 @@ class PostComment extends Component {
                     postCommentLabel: "post-comment-label-hide",
                     postCommentError: null
                 });
+
+                this.props.postComment({
+                    timestamp: timestamp,
+                    username: username,
+                    userPost: userPost,
+                    festivalName: festivalName,
+                    festivalId: festivalId
+                });
             }
-            //grab time to send to backend with message
+            
 
 
 
             // pass userPost, who is logged in and time of post to backend
-            this.props.postComment({
-                timestamp: timestamp,
-                username: username,
-                userPost: userPost,
-                festivalName: festivalName,
-                festivalId: festivalId
-            });
+            
 
             // reset form after submission
             event.target.reset();
